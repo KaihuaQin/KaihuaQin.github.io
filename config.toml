@@ -1,8 +1,8 @@
-baseURL = "https://kaihuaqin.com"
+baseURL = "https://kaihuaqin.com/"
 languageCode = "en-us"
 title = "Kaihua Qin"
 theme = "avicenna"
-googleAnalytics = "G-7PRSBSJMXG"
+googleAnalytics = ""
 timeout=3000
 
 [params]
