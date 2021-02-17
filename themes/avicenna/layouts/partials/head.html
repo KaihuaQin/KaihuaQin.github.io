@@ -30,6 +30,10 @@
 				{{ with .Site.Params.cv_name }}
 				<a href="{{ . }}" class="blog_cv">[cv]</a>
 				{{ end }}
+
+				{{ with .Site.Params.googlescholar }}
+				<a href="{{ . }}" class="blog_cv">[Google Scholar]</a>
+				{{ end }}
 				{{ end }}
 			</ul>
 		</nav>
