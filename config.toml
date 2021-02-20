@@ -15,7 +15,7 @@ timeout=3000
 [[params.affilation]]
   name = "Imperial College London"
   position = "Ph.D. Student"
-  contact = "[first name].qin@imperial.ac.uk"
+  contact = "kaihua.[my last name]@imperial.ac.uk"
 
 [[params.social]]
   name = "GitHub"
