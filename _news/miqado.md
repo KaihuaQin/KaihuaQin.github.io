@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Our paper on mitigating DeFi liquidations has been accepted at FC 2023!
-date: 2022-01-19 00:00:00-0000
+date: 2023-01-19 00:00:00-0000
 inline: false
 ---
 
