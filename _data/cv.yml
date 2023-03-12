@@ -1,0 +1,54 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Kaihua Qin
+    - name: Languages
+      value: Chinese, English
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Ph.D. in Computer Science 
+      institution: Imperial College London, United Kingdom
+      year: 2019 - present
+      description:
+        - Advised by <a href="https://arthurgervais.com/">Dr. Arthur Gervais</a>.
+    - title: M.Sc. in Communications and Signal Processing (with distinction)
+      institution: Imperial College London, United Kingdom
+      year: 2014 - 2015
+      description:
+        - Advised by <a href="http://www.ee.imperial.ac.uk/wei.dai/">Dr. Wei Dai</a>.
+    - title: B.E. in Information Engineering
+      institution: Southeast University, China
+      year: 2010 - 2014
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: Visiting Researcher
+      institution: University of California, Berkeley
+      year: 2022
+      description:
+        - Hosted by <a href="https://people.eecs.berkeley.edu/~dawnsong/">Prof. Dawn Song</a>.
+    - title: Research Intern
+      institution: Chainlink Labs
+      year: 2022
+      description:
+        - Working on order-fairness protocols.
+
+    - title: Software Engineer
+      institution: Cisco
+      year: 2016 – 2018
+
+# - title: Academic Interests
+#   type: nested_list
+#   contents:
+#     - title: Topic 1.
+#       items: 
+#         - Description 1.
+#         - Description 2.
+#     - title: Topic 2.
+#       items:
+#         - Description 1.
+#         - Description 2.
