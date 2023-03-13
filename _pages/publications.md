@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: Bibliometrics can be found in <a href=https://scholar.google.com/citations?user=-NPCrhcAAAAJ>Google Scholar</a>.
+description: Bibliometrics can be found on <a href=https://scholar.google.com/citations?user=-NPCrhcAAAAJ>Google Scholar</a>.
 years: [2023, 2022, 2021]
 nav: true
 nav_order: 1
