@@ -75,7 +75,7 @@ scholar_userid: -NPCrhcAAAAJ # your Google Scholar ID
 semanticscholar_id: 151484842 # your Semantic Scholar ID
 whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
 orcid_id: 0000-0003-2190-3623 # your ORCID ID
-medium_username: # your Medium username
+medium_username: kaihua.qin # your Medium username
 quora_username: # your Quora username
 publons_id: # your ID on Publons
 research_gate_profile: # your profile on ResearchGate
@@ -111,9 +111,9 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: # al-folio # blog_name will be displayed in your blog page
-blog_nav_title: # blog # your blog must have a title for it to be displayed in the nav bar
-blog_description: # a simple whitespace theme for academics
+blog_name: Chain of Thoughts # blog_name will be displayed in your blog page
+blog_nav_title: blog # blog # your blog must have a title for it to be displayed in the nav bar
+blog_description: Demystifying decentralized science, one byte at a time. # a simple whitespace theme for academics
 permalink: # /blog/:year/:title/
 
 # Pagination
@@ -128,8 +128,8 @@ disqus_shortname: # al-folio # put your disqus shortname
 # If you have blog posts published on medium.com or other exteranl sources,
 # you can display them in your blog by adding a link to the RSS feed.
 external_sources:
-  # - name: medium.com
-  #   rss_url: https://medium.com/@al-folio/feed
+  - name: medium.com
+    rss_url: https://medium.com/feed/@kaihua.qin
 
 # -----------------------------------------------------------------------------
 # Collections
@@ -213,7 +213,7 @@ jekyll-minifier:
 # -----------------------------------------------------------------------------
 
 jekyll-archives:
-  enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
+  enabled: [year] # enables year, tag and category archives (remove if you need to disable one of them).
   layouts:
     year: archive-year
     tag: archive-tag
@@ -223,7 +223,7 @@ jekyll-archives:
     tag: '/blog/tag/:name/'
     category: '/blog/category/:name/'
 
-display_tags: ['formatting', 'images', 'links', 'math', 'code'] # this tags will be dispalyed on the front page of your blog
+display_tags: # this tags will be dispalyed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
@@ -255,7 +255,7 @@ scholar:
   query: "@*"
 
 # Filter out certain bibtex entry keywords used internally from the bib output
-filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, html, pdf, selected, supp, blog, code, poster, slides, website, preview, altmetric]
+filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, html, pdf, selected, supp, blog, code, poster, slides, website, preview, altmetric, notes]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
 max_author_limit: 7  # leave blank to always show all authors

@@ -712,3 +712,11 @@ progress {
      display: block;
      height: inherit;
  }
+
+ .notes {
+  margin-top: 10px; // Adjust the value as needed
+  font-style: italic;
+  p {
+    margin-bottom: 5px; // Adjust the value as needed for space between paragraphs
+  }
+}

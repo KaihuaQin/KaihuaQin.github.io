@@ -180,6 +180,11 @@
           {%- if entry.altmetric %}
             <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script><div data-altmetric-id="{{ entry.altmetric }}" class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-popover="right" data-badge-type="2" style="display:inline"></div>
           {%- endif %}
+          {%- if entry.notes %}
+            <div class="notes">
+                {{ entry.notes | newline_to_br }}
+            </div>
+    {%- endif %}
           </div>
 
           {% if entry.abstract -%}

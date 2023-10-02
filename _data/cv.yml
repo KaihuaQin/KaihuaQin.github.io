@@ -26,6 +26,11 @@
 - title: Experience
   type: time_table
   contents:
+    - title: Co-Founder
+      institution: Decentralized Inteligence AG
+      year: 2022 - present
+      description:
+        - <a href="https://d23e.ch/">d23e.ch</a>
     - title: Visiting Researcher
       institution: University of California, Berkeley
       year: 2022
