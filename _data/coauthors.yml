@@ -37,3 +37,35 @@
 "Wang":
   - firstname: ["Ye"]
     url: https://www.ye.wang/
+
+"Yaish":
+  - firstname: ["Aviv"]
+    url: https://www.avivyaish.com/
+
+"Wahrstätter":
+  - firstname: ["Anton"]
+    url: https://toniwahrstaetter.com/
+
+"Tsuchiya":
+  - firstname: ["Taro"]
+    url: https://taro-tsuchiya.github.io/
+
+"Svetinovic":
+  - firstname: ["Davor"]
+    url: https://www.davors.com/
+
+"Christin":
+  - firstname: ["Nicolas"]
+    url: https://www.andrew.cmu.edu/user/nicolasc/
+
+"Barczentewicz":
+  - firstname: ["Mikolaj"]
+    url: https://www.barczentewicz.com/
+
+"Steinhorst":
+  - firstname: ["Sebastian"]
+    url: https://www.professoren.tum.de/en/steinhorst-sebastian
+
+"Ernstberger":
+  - firstname: ["Jens"]
+    url: https://www.ce.cit.tum.de/esi/mitarbeiter/ernstberger/
