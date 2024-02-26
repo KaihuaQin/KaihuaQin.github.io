@@ -23,7 +23,22 @@
       institution: Southeast University, China
       year: 2010 - 2014
 
-- title: Experience
+- title: Academic Appointments
+  type: time_table
+  contents:
+    - title: Affiliated Researcher
+      institution: Yale University
+      year: 2024
+      description:
+        - Hosted by <a href="https://www.fanzhang.me/">Prof. Fan Zhang</a> and <a href="https://www.cs.yale.edu/homes/shao-zhong/">Prof. Zhong Shao</a>.
+
+    - title: Visiting Researcher
+      institution: University of California, Berkeley
+      year: 2022
+      description:
+        - Hosted by <a href="https://people.eecs.berkeley.edu/~dawnsong/">Prof. Dawn Song</a>
+
+- title: Industry Experience
   type: time_table
   contents:
     - title: Co-Founder
@@ -31,11 +46,7 @@
       year: 2022 - present
       description:
         - <a href="https://d23e.ch/">d23e.ch</a>
-    - title: Visiting Researcher
-      institution: University of California, Berkeley
-      year: 2022
-      description:
-        - Hosted by <a href="https://people.eecs.berkeley.edu/~dawnsong/">Prof. Dawn Song</a>.
+
     - title: Research Intern
       institution: Chainlink Labs
       year: 2022
