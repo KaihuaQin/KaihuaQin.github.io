@@ -35,8 +35,10 @@
     url: https://pascal-berrang.de/
 
 "Wang":
-  - firstname: ["Ye"]
+  - firstname: ["Ye", "Kanye Ye"]
     url: https://www.ye.wang/
+  - firstname: ["Yang"]
+    url: https://yangwang.ischool.illinois.edu/
 
 "Yaish":
   - firstname: ["Aviv"]
@@ -73,3 +75,11 @@
 "Zohar":
   - firstname: ["Aviv"]
     url: https://www.avivz.net/
+
+"Sharma":
+  - firstname: ["Tanusree"]
+    url: https://tanusreesharma.github.io/
+
+"Yu":
+  - firstname: ["Yaman"]
+    url: https://ischool.illinois.edu/people/yaman-yu

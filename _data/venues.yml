@@ -1,3 +1,10 @@
+"SP 25":
+  url: https://sp2025.ieee-security.org/
+  color: "#ffbe0f"
+
+"ICBC 24":
+  url: https://icbc2024.ieee-icbc.org/
+
 "Sec 24":
   url: https://www.usenix.org/conference/usenixsecurity24
   color: "#ffbe0f"
