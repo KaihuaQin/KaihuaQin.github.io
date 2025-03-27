@@ -501,6 +501,9 @@ footer.sticky-bottom {
       .abbr {
         height: 2rem;
         margin-bottom: 0.5rem;
+        display: flex; // Add this
+        justify-content: end; // Add this
+        align-items: center; // Add this to prevent stretching
         abbr {
           display: inline-block;
           background-color: var(--global-theme-color);
