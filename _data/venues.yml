@@ -1,3 +1,7 @@
+"SIGMETRICS 25":
+  url: https://www.sigmetrics.org/sigmetrics2025/
+  color: "#ffbe0f"
+
 "SP 25":
   url: https://sp2025.ieee-security.org/
   color: "#ffbe0f"
@@ -5,7 +9,7 @@
 "ICBC 24":
   url: https://icbc2024.ieee-icbc.org/
 
-"Sec 24":
+"Security 24":
   url: https://www.usenix.org/conference/usenixsecurity24
   color: "#ffbe0f"
 
@@ -13,7 +17,7 @@
   url: https://www2024.thewebconf.org/
   color: "#ffbe0f"
 
-"Sec 23":
+"Security 23":
   url: https://www.usenix.org/conference/usenixsecurity23
   color: "#ffbe0f"
 
