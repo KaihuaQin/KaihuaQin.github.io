@@ -509,6 +509,9 @@ footer.sticky-bottom {
           background-color: var(--global-theme-color);
           padding-left: 1rem;
           padding-right: 1rem;
+          span {
+            color: var(--global-card-bg-color);
+          }
           a {
             color: var(--global-card-bg-color);
             &:hover {
