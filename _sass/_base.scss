@@ -510,7 +510,7 @@ footer.sticky-bottom {
           padding-left: 1rem;
           padding-right: 1rem;
           a {
-            color: white;
+            color: var(--global-card-bg-color);
             &:hover {
               text-decoration: none;
             }
