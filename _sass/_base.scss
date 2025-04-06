@@ -726,3 +726,30 @@ progress {
     margin-bottom: 5px; // Adjust the value as needed for space between paragraphs
   }
 }
+
+.bibtex {
+  position: relative;
+
+  .copy-bibtex {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--global-theme-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    opacity: 0.3; // Make the button transparent by default
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8; // Fully visible on hover
+    }
+
+    i {
+      margin-right: 5px;
+    }
+  }
+}
