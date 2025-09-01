@@ -1,0 +1,69 @@
+name: Deploy Website
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'publications.bib'
+      - 'generate_publications.py'
+      - 'index.html'
+      - 'style.css'
+      - '*.jpg'
+      - '*.png'
+      - '*.svg'
+      - '*.ico'
+      - '*.pdf'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Run publication generator
+      run: python generate_publications.py
+      
+    - name: Create deployment directory
+      run: |
+        mkdir -p deploy
+        
+    - name: Copy web files to deployment directory
+      run: |
+        # Copy only the files needed for the website
+        cp index.html deploy/
+        cp style.css deploy/
+        cp prof_pic.jpg deploy/
+        cp cv.pdf deploy/
+        cp favicon.* deploy/
+        cp apple-touch-icon.png deploy/
+        cp robots.txt deploy/
+        cp sitemap.xml deploy/
+        cp CNAME deploy/
+        
+        # Create .nojekyll file to disable GitHub Pages Jekyll processing
+        touch deploy/.nojekyll
+        
+    - name: Deploy to gh-pages branch
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./deploy
+        publish_branch: deploy
+        force_orphan: true
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        commit_message: 'Deploy website from main branch'
+        
+    # Note: Publications are generated locally before pushing to main
+    # This workflow only handles deployment to gh-pages branch

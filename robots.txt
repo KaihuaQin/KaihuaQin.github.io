@@ -1,7 +1,8 @@
----
-permalink: /robots.txt
----
 User-agent: *
-Disallow:
+Allow: /
 
-Sitemap: {{ site.baseurl | prepend: site.url }}/sitemap.xml
+# Sitemap location
+Sitemap: https://qin.ac/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
