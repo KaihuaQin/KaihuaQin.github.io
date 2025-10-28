@@ -139,7 +139,7 @@
   <main>
     <div class="theme-toggle-container">
       <button id="theme-toggle" aria-label="Toggle dark/light mode">
-        <i id="theme-icon" class="fas fa-moon"></i>
+        <i id="theme-icon" class="fas fa-sun"></i>
       </button>
     </div>
     <header class="site-header">
@@ -230,7 +230,7 @@
         </div>
       </div>
       <div class="recruiting-banner">
-        🚀 <strong>PhD Positions Available - Currently Recruiting!</strong> 
+        <strong>PhD Positions Available - Currently Recruiting!</strong>
         <p>I'm actively recruiting PhD students for my research group. If you're interested in pursuing a PhD in my research areas, please feel free to reach out with your CV at Kaihua[dot]Qin[at]warwick.ac.uk.</p>
         <p><strong>Funding:</strong> Various funding opportunities are available. Please speak to me directly to discuss the options. Note that I may not respond to every inquiry.</p>
       </div>
@@ -337,10 +337,10 @@
   function setTheme(theme) {
     if (theme === 'light') {
       document.body.classList.add('light');
-      icon.className = 'fas fa-sun';
+      icon.className = 'fas fa-moon';
     } else {
       document.body.classList.remove('light');
-      icon.className = 'fas fa-moon';
+      icon.className = 'fas fa-sun';
     }
     localStorage.setItem('theme', theme);
   }
