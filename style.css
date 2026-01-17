@@ -10,6 +10,7 @@
   --border-color: #eaeaea;
   --sidebar-width: 300px;
   --spacing-unit: 1.5rem;
+  /* System fonts usually display immediately, but specifying swap is good practice if we add web fonts */
   --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
 }
