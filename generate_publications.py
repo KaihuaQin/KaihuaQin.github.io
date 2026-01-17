@@ -147,8 +147,9 @@ def make_links(entry):
     return '\n                  '.join(links)
 
 def make_entry_html(entry):
-    # Venue tag (abbreviation)
+    # Venue tag (abbreviation) - strip year (e.g. "ISSTA 25" -> "ISSTA")
     venue = html_escape(entry.get('abbr', ''))
+    venue = re.sub(r'\s+\d{2}$', '', venue)
     
     title = html_escape(entry.get('title', ''))
     # Don't escape authors since we're adding HTML highlighting
@@ -234,6 +235,7 @@ def update_index_html():
 
 def make_entry_md(entry):
     venue = entry.get('abbr', '')
+    venue = re.sub(r'\s+\d{2}$', '', venue)
     title = entry.get('title', '')
     authors = format_authors(entry.get('author', ''))
     # Remove HTML bolding from authors for MD
