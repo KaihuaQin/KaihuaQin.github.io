@@ -7,8 +7,9 @@ on:
       - 'publications.bib'
       - 'generate_publications.py'
       - 'index.html'
-      - 'style.css'
+      - 'index.md'
       - '*.jpg'
+      - '*.webp'
       - '*.png'
       - '*.svg'
       - '*.ico'
@@ -42,8 +43,9 @@ jobs:
       run: |
         # Copy only the files needed for the website
         cp index.html deploy/
-        cp style.css deploy/
+        cp index.md deploy/
         cp prof_pic.jpg deploy/
+        cp prof_pic.webp deploy/
         cp cv.pdf deploy/
         cp favicon.* deploy/
         cp apple-touch-icon.png deploy/
