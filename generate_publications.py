@@ -130,23 +130,44 @@ def format_authors(authors):
         formatted.append(full_name)
     return ', '.join(formatted)
 
+
 def make_links(entry):
     links = []
     if 'arxiv' in entry:
-        links.append(f'<a href="https://arxiv.org/abs/{entry["arxiv"]}" target="_blank">arXiv</a>')
+        links.append(f'<a href="https://arxiv.org/abs/{entry["arxiv"]}" target="_blank"><i class="far fa-file-pdf"></i> arXiv</a>')
     if 'eprint' in entry:
-        links.append(f'<a href="https://eprint.iacr.org/{entry["eprint"]}" target="_blank">ePrint</a>')
+        links.append(f'<a href="https://eprint.iacr.org/{entry["eprint"]}" target="_blank"><i class="far fa-file-pdf"></i> ePrint</a>')
     if 'blog' in entry:
-        links.append(f'<a href="{entry["blog"]}" target="_blank">Blog</a>')
-    return ' | '.join(links)
+        links.append(f'<a href="{entry["blog"]}" target="_blank"><i class="fas fa-blog"></i> Blog</a>')
+    
+    # Add other common links if present
+    if 'pdf' in entry:
+        links.append(f'<a href="{entry["pdf"]}" target="_blank"><i class="far fa-file-pdf"></i> PDF</a>')
+    
+    return '\n                  '.join(links)
 
 def make_entry_html(entry):
-    abbr = f'<span class="pub-abbr">{html_escape(entry["abbr"])}</span> ' if 'abbr' in entry else ''
+    # Venue tag (abbreviation)
+    venue = html_escape(entry.get('abbr', ''))
+    
     title = html_escape(entry.get('title', ''))
     # Don't escape authors since we're adding HTML highlighting
     authors = format_authors(entry.get('author', ''))
-    links = make_links(entry)
-    return f'<li class="pub-entry">{abbr}<span class="pub-title">{title}</span><br><span class="pub-authors">{authors}</span>' + (f'<br><span class="pub-links">{links}</span>' if links else '') + '</li>'
+    
+    links_html = make_links(entry)
+    links_div = f'<div class="pub-links">\n                  {links_html}\n                </div>' if links_html else ''
+    
+    html = f'''            <li class="pub-item">
+              <div class="pub-venue-tag">{venue}</div>
+              <div class="pub-details">
+                <div class="pub-title">{title}</div>
+                <div class="pub-authors">
+                  {authors}
+                </div>
+                {links_div}
+              </div>
+            </li>'''
+    return html
 
 def generate_publications_html():
     bib_content = BIB_PATH.read_text(encoding='utf-8')
@@ -168,24 +189,18 @@ def generate_publications_html():
     
     for year in sorted_years:
         year_entries = years[year]
-        # Sort entries within year alphabetically by title
-        year_entries.sort(key=lambda e: e.get('title', ''))
+        # Sort entries within year alphabetically by title (or use a 'selected' flag or other logic if needed)
+        # Defaulting to bib order or title for now
         
-        # Generate year section - collapse older years (keep recent 3 years expanded)
-        current_year = 2025
-        collapsed_class = ' collapsed' if int(year) < (current_year - 2) else ''
-        year_html = f'      <div class="year-section{collapsed_class}">\n'
-        year_html += f'        <h3 class="year-header" onclick="toggleYear(this)">\n'
-        year_html += f'          <span>{year}</span>\n'
-        year_html += f'          <span class="year-toggle">▼</span>\n'
-        year_html += f'        </h3>\n'
-        year_html += f'        <ul class="pub-list">\n'
+        year_html = f'        <div class="year-group">\n'
+        year_html += f'          <div class="year-header">{year}</div>\n'
+        year_html += f'          <ul class="pub-list">\n'
         
         for entry in year_entries:
-            year_html += f'          {make_entry_html(entry)}\n'
+            year_html += f'{make_entry_html(entry)}\n'
         
-        year_html += f'        </ul>\n'
-        year_html += f'      </div>'
+        year_html += f'          </ul>\n'
+        year_html += f'        </div>'
         
         html_sections.append(year_html)
     
@@ -196,31 +211,99 @@ def update_index_html():
     pub_html = generate_publications_html()
     index_content = index_path.read_text(encoding='utf-8')
     
-    # Find the publications section and preserve the bibliometrics line
-    pattern = r'(<section[^>]+id="publications"[^>]*>\s*)(.*?)(<div class="year-section">.*?)(</section>)'
+    # Target the content AFTER the Google Scholar link
+    # We look for <section id="publications" ...> ... <p ...>Full list ...</p> (CAPTURE START) ... (CAPTURE END) </section>
     
-    def replace_publications(match):
-        section_start = match.group(1)
-        before_publications = match.group(2)  # This should contain the bibliometrics line
-        section_end = match.group(4)
+    # More robust regex: Find the Publications section, keep the header and google scholar link, replace the rest up to </section>
+    pattern = r'(<section id="publications" class="content-section">\s*<h2>Publications</h2>\s*<p[^>]*>.*?Google Scholar</a>\.</p>)([\s\S]*?)(</section>)'
+    
+    match = re.search(pattern, index_content, re.DOTALL)
+    
+    if match:
+        header_part = match.group(1)
+        closing_tag = match.group(3)
         
-        # Keep any content before the first year-section (like bibliometrics line)
-        return section_start + before_publications + pub_html + '\n    ' + section_end
+        new_content = index_content[:match.start()] + header_part + '\n\n' + pub_html + '\n\n      ' + closing_tag + index_content[match.end():]
+        index_path.write_text(new_content, encoding='utf-8')
+        print("Updated index.html with new publications list.")
+    else:
+        print("Could not find publications section to update. Please check index.html structure.")
+
+
+
+
+def make_entry_md(entry):
+    venue = entry.get('abbr', '')
+    title = entry.get('title', '')
+    authors = format_authors(entry.get('author', ''))
+    # Remove HTML bolding from authors for MD
+    authors = authors.replace('<strong class="author-highlight">', '**').replace('</strong>', '**')
     
-    # Try the targeted replacement first
-    new_content = re.sub(pattern, replace_publications, index_content, flags=re.DOTALL)
+    links = []
+    if 'arxiv' in entry:
+        links.append(f"[arXiv](https://arxiv.org/abs/{entry['arxiv']})")
+    if 'eprint' in entry:
+        links.append(f"[ePrint](https://eprint.iacr.org/{entry['eprint']})")
+    if 'blog' in entry:
+        links.append(f"[Blog]({entry['blog']})")
+    if 'pdf' in entry:
+        links.append(f"[PDF]({entry['pdf']})")
+        
+    links_str = " | ".join(links)
     
-    # If no match, fall back to simpler replacement
-    if new_content == index_content:
-        # Fallback: replace content between publications section tags
+    venue_str = f"**[{venue}]** " if venue else ""
+    return f"- {venue_str}{title}\n  - {authors}\n  - {links_str}"
+
+def generate_publications_md():
+    bib_content = BIB_PATH.read_text(encoding='utf-8')
+    entries = parse_bibtex(bib_content)
+    
+    # Group by year
+    years = {}
+    for entry in entries:
+        year = entry.get('year', '0')
+        if year not in years:
+            years[year] = []
+        years[year].append(entry)
+    
+    sorted_years = sorted(years.keys(), key=int, reverse=True)
+    md_sections = []
+    
+    for year in sorted_years:
+        year_entries = years[year]
+        # Sort by title
+        year_entries.sort(key=lambda e: e.get('title', ''))
+        
+        section = f"### {year}\n"
+        for entry in year_entries:
+            section += make_entry_md(entry) + "\n"
+        md_sections.append(section)
+        
+    return "\n".join(md_sections)
+
+def update_index_md():
+    md_path = Path('index.md')
+    if not md_path.exists():
+        print("index.md not found, skipping.")
+        return
+
+    pub_md = generate_publications_md()
+    md_content = md_path.read_text(encoding='utf-8')
+    
+    # Replace content between markers
+    pattern = r'(<!-- PUBLICATIONS START -->)([\s\S]*?)(<!-- PUBLICATIONS END -->)'
+    
+    if re.search(pattern, md_content):
         new_content = re.sub(
-            r'(<section[^>]+id="publications"[^>]*>)([\s\S]*?)(</section>)',
-            lambda m: m.group(1) + '\n      <p class="bibliometrics-note">Bibliometrics can be found on <a href="https://scholar.google.com/citations?user=-NPCrhcAAAAJ" target="_blank">Google Scholar</a>.</p>\n' + pub_html + '\n    ' + m.group(3),
-            index_content,
-            flags=re.MULTILINE
+            pattern, 
+            lambda m: m.group(1) + '\n' + pub_md + '\n' + m.group(3),
+            md_content
         )
-    
-    index_path.write_text(new_content, encoding='utf-8')
+        md_path.write_text(new_content, encoding='utf-8')
+        print("Updated index.md with new publications list.")
+    else:
+        print("Could not find markers in index.md")
 
 if __name__ == '__main__':
-    update_index_html() 
+    update_index_html()
+    update_index_md() 
