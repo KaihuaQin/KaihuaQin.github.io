@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaihua Qin | Assistant Professor | University of Warwick</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Assistant Professor in Computer Science at University of Warwick. Researching blockchain security, decentralized systems, and AI for cybersecurity. Recruiting PhD students.">
+  <meta name="keywords"
+    content="Kaihua Qin, Assistant Professor, Computer Science, University of Warwick, blockchain security, decentralized systems, AI security">
+  <meta name="author" content="Kaihua Qin">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Kaihua Qin | Assistant Professor">
+  <meta property="og:description"
+    content="Researching blockchain security, decentralized systems, and AI for cybersecurity. Recruiting PhD students.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qin.ac">
+  <meta property="og:image" content="prof_pic.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kaihua Qin | Assistant Professor">
+  <meta name="twitter:description"
+    content="Researching blockchain security, decentralized systems, and AI for cybersecurity. Recruiting PhD students.">
+  <meta name="twitter:image" content="prof_pic.jpg">
+
+  <link rel="canonical" href="https://qin.ac">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Styles & Fonts -->
+
+  <style>
+    /* Global Variables & Reset */
+    :root {
+      --bg-color: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555555;
+      --accent-color: #2c3e50;
+      /* Deep slate blue/grey */
+      --accent-light: #eef2f5;
+      --link-color: #0066cc;
+      --border-color: #eaeaea;
+      --sidebar-width: 300px;
+      --spacing-unit: 1.5rem;
+      /* System fonts usually display immediately, but specifying swap is good practice if we add web fonts */
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-main);
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout */
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-width);
+      padding: 40px 30px;
+      border-right: 1px solid var(--border-color);
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      top: 0;
+      left: max(0px, calc(50% - 600px));
+      /* Center properly when screen > 1200px */
+    }
+
+    .profile-section {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .profile-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      color: var(--accent-color);
+    }
+
+    .profile-title {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .profile-affiliation {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+
+    .social-links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-link {
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .social-link:hover {
+      color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    /* Navigation */
+    .nav-menu {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .nav-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 10px 15px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      background-color: var(--accent-light);
+      color: var(--accent-color);
+    }
+
+    .nav-link.active {
+      background-color: var(--accent-color);
+      color: #fff;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      margin-left: var(--sidebar-width);
+      padding: 60px 60px;
+      min-height: 100vh;
+    }
+
+    /* Typography & Elements */
+    h1,
+    h2,
+    h3 {
+      color: var(--accent-color);
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    .content-section {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Recruit Banner */
+    .recruit-banner {
+      background-color: #f8f9fa;
+      border-left: 4px solid var(--accent-color);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .recruit-title {
+      display: block;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Research Grid */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 2rem;
+    }
+
+    .research-card {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .research-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .research-icon {
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .research-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .research-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    /* Publications */
+    .year-group {
+      margin-bottom: 3rem;
+    }
+
+    .year-header {
+      font-size: 1.4rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .year-header::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+      margin-left: 1rem;
+    }
+
+    .pub-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pub-item {
+      margin-bottom: 1.5rem;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 20px;
+      align-items: baseline;
+    }
+
+    .pub-venue-tag {
+      background: var(--accent-color);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-align: center;
+      justify-self: start;
+      width: 100%;
+    }
+
+    .pub-details {
+      min-width: 0;
+      /* Prevent flex/grid item overflow */
+    }
+
+    @media (max-width: 600px) {
+      .pub-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .pub-venue-tag {
+        justify-self: start;
+        width: auto;
+      }
+    }
+
+    .pub-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .pub-authors {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .author-me {
+      color: var(--text-primary);
+      font-weight: 600;
+      border-bottom: 2px solid var(--accent-light);
+    }
+
+    .pub-links a {
+      font-size: 0.85rem;
+      margin-right: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* CV Section */
+    .cv-controls {
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-light);
+      color: var(--accent-color);
+      border-color: var(--accent-light);
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: white;
+      border-color: var(--accent-color);
+    }
+
+    .btn-primary:hover {
+      background-color: #34495e;
+      /* Slightly lighter */
+      color: white;
+    }
+
+    .pdf-container-wrapper {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: #525659;
+      /* PDF viewer bg */
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+
+
+    /* Mobile Responsiveness */
+    @media (max-width: 900px) {
+      .app-container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 30px 20px;
+        left: 0;
+        top: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 30px 20px;
+      }
+
+      .nav-menu {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .nav-item {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pub-item {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .pub-venue-tag {
+        align-self: flex-start;
+      }
+    }
+
+
+    .nav-link i {
+      vertical-align: middle;
+    }
+
+    .profile-affiliation a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dotted var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .profile-affiliation a:hover {
+      color: var(--accent-color);
+      border-bottom-style: solid;
+    }
+  </style>
+  <link rel="alternate" type="text/markdown" title="Markdown Version" href="index.md">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+# ... (skipping unchanged lines)
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile-section">
+        <img src="prof_pic.jpg" alt="Kaihua Qin" class="profile-img" width="160" height="160" fetchpriority="high">
+        <h1 class="profile-name">Kaihua Qin</h1>
+    "name": "Kaihua Qin",
+    "jobTitle": "Assistant Professor",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "University of Warwick"
+    },
+    "url": "https://qin.ac",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=-NPCrhcAAAAJ",
+      "https://x.com/KaihuaQIN",
+      "https://github.com/kaihuaqin",
+      "https://www.linkedin.com/in/kaihuaqin"
+    ]
+  }
+  </script>
+  <style>
+    .svg-inline--fa {
+      display: inline-block;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+
+    .svg-inline--fa.fa-lg {
+      vertical-align: -0.225em;
+      font-size: 1.25em;
+    }
+
+    .svg-inline--fa path {
+      fill: currentColor;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile-section">
+        <picture>
+          <source srcset="prof_pic.webp" type="image/webp">
+          <img src="prof_pic.jpg" alt="Kaihua Qin" class="profile-img" width="160" height="160" fetchpriority="high">
+        </picture>
+        <h1 class="profile-name">Kaihua Qin</h1>
+        <div class="profile-title">Assistant Professor</div>
+        <div class="profile-affiliation">
+          <a href="https://warwick.ac.uk/" target="_blank">University of Warwick</a>
+        </div>
+        <div class="profile-affiliation">
+          <a href="https://warwick.ac.uk/fac/sci/dcs/" target="_blank">Dept. of Computer Science</a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://scholar.google.com/citations?user=-NPCrhcAAAAJ" target="_blank" class="social-link"
+            title="Google Scholar">
+            <svg class="fas fa-graduation-cap svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"
+              role="img" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z" />
+            </svg>
+          </a>
+          <a href="https://x.com/KaihuaQIN" target="_blank" class="social-link" title="X (Twitter)">
+            <svg class="fab fa-x-twitter svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+              role="img" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+            </svg>
+          </a>
+          <a href="https://github.com/kaihuaqin" target="_blank" class="social-link" title="GitHub">
+            <svg class="fab fa-github svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
+              role="img" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/kaihuaqin" target="_blank" class="social-link" title="LinkedIn">
+            <svg class="fab fa-linkedin svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+              role="img" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+            </svg>
+          </a>
+          <a href="mailto:kaihua@qin.ac" class="social-link" title="Email">
+            <svg class="fas fa-envelope svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+              role="img" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link active" href="#home" onclick="switchTab('home'); return false;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#publications" onclick="switchTab('publications'); return false;">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cv.pdf" target="_blank">
+              CV <svg class="fas fa-external-link-alt svg-inline--fa" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false">
+                <path fill="currentColor"
+                  d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V32c0-17.7-14.3-32-32-32H352zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Home Section -->
+      <section id="home" class="content-section active">
+        <h2>About Me</h2>
+        <p>
+          I am an Assistant Professor in the Department of Computer Science at the University of Warwick.
+          Before joining Warwick, I was with Yale University, hosted by Prof. Fan Zhang and Prof. Zhong Shao.
+        </p>
+        <p>
+          I earned my PhD at Imperial College London under the supervision of Prof. Arthur Gervais.
+          Prior to that, I received my MSc from Imperial College London and my BE from Southeast University.
+        </p>
+        <p>
+          I co-founded Decentralized Intelligence (D23E), where we advance decentralization and intelligence.
+        </p>
+
+        <div class="recruit-banner">
+          <span class="recruit-title"><svg class="fas fa-bullhorn svg-inline--fa" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z" />
+            </svg> Interested in working with me?</span>
+          <p>I am always looking for self-motivated students. If you are interested, please reach out with your CV and a
+            brief explanation of why you are a good fit at <strong>kaihua[at]qin.ac</strong>.</p>
+        </div>
+
+        <h2>Research Interests</h2>
+        <div class="research-grid">
+          <div class="research-card">
+            <div class="research-icon"><i class="fas fa-network-wired"></i></div>
+            <h3>Decentralized Systems</h3>
+            <p>Securing blockchains and decentralized systems, focusing on information security, distributed computing,
+              and applied cryptography.</p>
+          </div>
+
+          <div class="research-card">
+            <div class="research-icon"><i class="fas fa-coins"></i></div>
+            <h3>Cryptoeconomics</h3>
+            <p>Using game theory, mechanism design, and causal inference to align incentives and ensure resilient
+              decentralized finance.</p>
+          </div>
+
+          <div class="research-card">
+            <div class="research-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>AI for Security</h3>
+            <p>Applying AI to enhance cybersecurity, including automating threat detection and vulnerability management.
+            </p>
+          </div>
+          <div class="research-card">
+            <div class="research-icon"><i class="fas fa-robot"></i></div>
+            <h3>Security of AI</h3>
+            <p>Safeguarding machine learning models against adversarial attacks, privacy breaches, and other threats.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publications Section -->
+      <section id="publications" class="content-section">
+        <h2>Publications</h2>
+        <p style="margin-bottom: 2rem;">Full list available on <a
+            href="https://scholar.google.com/citations?user=-NPCrhcAAAAJ" target="_blank">Google Scholar</a>.</p>
+
+        <div class="year-group">
+          <div class="year-header">2025</div>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-venue-tag">ISSTA</div>
+              <div class="pub-details">
+                <div class="pub-title">Enhancing Smart Contract Security Analysis with Execution Property Graphs</div>
+                <div class="pub-authors">
+                  <strong class="author-highlight">Kaihua Qin</strong>, Zhe Ye, Zhun Wang, Weilin Li, Liyi Zhou, Chao Zhang, Dawn Song, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2305.14046" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">SIGMETRICS</div>
+              <div class="pub-details">
+                <div class="pub-title">Blockchain Amplification Attack</div>
+                <div class="pub-authors">
+                  Taro Tsuchiya, Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Arthur Gervais, Nicolas Christin
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2408.01508" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">S&amp;P</div>
+              <div class="pub-details">
+                <div class="pub-title">Security Perceptions of Users in Stablecoins: Advantages and Risks within the Cryptocurrency Ecosystem</div>
+                <div class="pub-authors">
+                  Maggie Yongqi Guan, Yaman Yu, Tanusree Sharma, Molly Zhuangtong Huang, <strong class="author-highlight">Kaihua Qin</strong>, Yang Wang, Kanye Ye Wang
+                </div>
+                <div class="pub-links">
+                  <a href="https://eprint.iacr.org/2024/1538" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> ePrint</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="year-group">
+          <div class="year-header">2024</div>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-venue-tag">AFT</div>
+              <div class="pub-details">
+                <div class="pub-title">DeFiAligner: Leveraging Symbolic Analysis and Large Language Models for Inconsistency Detection in Decentralized Finance</div>
+                <div class="pub-authors">
+                  Rundong Gan, Liyi Zhou, Le Wang, <strong class="author-highlight">Kaihua Qin</strong>, Xiaodong Lin
+                </div>
+                
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">ICBC</div>
+              <div class="pub-details">
+                <div class="pub-title">What Drives the (In) stability of a Stablecoin?</div>
+                <div class="pub-authors">
+                  Yujin Potter, Kornrapat Pongmala, <strong class="author-highlight">Kaihua Qin</strong>, Ariah Klages-Mundt, Philipp Jovanovic, Christine Parlour, Arthur Gervais, Dawn Song
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2307.11754" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">Security</div>
+              <div class="pub-details">
+                <div class="pub-title">Speculative Denial-of-Service Attacks In Ethereum</div>
+                <div class="pub-authors">
+                  Aviv Yaish, <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Aviv Zohar, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://eprint.iacr.org/2023/956" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> ePrint</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">WWW</div>
+              <div class="pub-details">
+                <div class="pub-title">Blockchain censorship</div>
+                <div class="pub-authors">
+                  Anton Wahrstätter, Jens Ernstberger, Aviv Yaish, Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Taro Tsuchiya, Sebastian Steinhorst, Davor Svetinovic, Nicolas Christin, Mikolaj Barczentewicz, others
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2305.18545" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="year-group">
+          <div class="year-header">2023</div>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-venue-tag">Security</div>
+              <div class="pub-details">
+                <div class="pub-title">The blockchain imitation game</div>
+                <div class="pub-authors">
+                  <strong class="author-highlight">Kaihua Qin</strong>, Stefanos Chaliasos, Liyi Zhou, Benjamin Livshits, Dawn Song, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2303.17877" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <a href="https://medium.com/@kaihua.qin/the-blockchain-imitation-game-c489553efd83" target="_blank"><svg class="fas fa-blog svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"/></svg> Blog</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">FC</div>
+              <div class="pub-details">
+                <div class="pub-title">Mitigating decentralized finance liquidations with reversible call options</div>
+                <div class="pub-authors">
+                  <strong class="author-highlight">Kaihua Qin</strong>, Jens Ernstberger, Liyi Zhou, Philipp Jovanovic, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2303.15162" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">WWW</div>
+              <div class="pub-details">
+                <div class="pub-title">On how zero-knowledge proof blockchain mixers improve, and worsen user privacy</div>
+                <div class="pub-authors">
+                  Zhipeng Wang, Stefanos Chaliasos, <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Lifeng Gao, Pascal Berrang, Benjamin Livshits, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2201.09035" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">S&amp;P</div>
+              <div class="pub-details">
+                <div class="pub-title">Sok: Decentralized finance (defi) attacks</div>
+                <div class="pub-authors">
+                  Liyi Zhou, Xihan Xiong, Jens Ernstberger, Stefanos Chaliasos, Zhipeng Wang, Ye Wang, <strong class="author-highlight">Kaihua Qin</strong>, Roger Wattenhofer, Dawn Song, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2208.13035" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="year-group">
+          <div class="year-header">2022</div>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-venue-tag">S&amp;P</div>
+              <div class="pub-details">
+                <div class="pub-title">Quantifying blockchain extractable value: How dark is the forest?</div>
+                <div class="pub-authors">
+                  <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2101.05511" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">FC</div>
+              <div class="pub-details">
+                <div class="pub-title">Speculative multipliers on defi: Quantifying on-chain leverage risks</div>
+                <div class="pub-authors">
+                  Zhipeng Wang, <strong class="author-highlight">Kaihua Qin</strong>, Duc Vu Minh, Arthur Gervais
+                </div>
+                
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="year-group">
+          <div class="year-header">2021</div>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-venue-tag">IMC</div>
+              <div class="pub-details">
+                <div class="pub-title">An empirical study of defi liquidations: Incentives, risks, and instabilities</div>
+                <div class="pub-authors">
+                  <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Pablo Gamito, Philipp Jovanovic, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2106.06389" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">S&amp;P</div>
+              <div class="pub-details">
+                <div class="pub-title">High-frequency trading on decentralized on-chain exchanges</div>
+                <div class="pub-authors">
+                  Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Christof Ferreira Torres, Duc V Le, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2009.14021" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">S&amp;P</div>
+              <div class="pub-details">
+                <div class="pub-title">On the just-in-time discovery of profit-generating transactions in defi protocols</div>
+                <div class="pub-authors">
+                  Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Antoine Cully, Benjamin Livshits, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2103.02228" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
+              <div class="pub-venue-tag">FC</div>
+              <div class="pub-details">
+                <div class="pub-title">Attacking the defi ecosystem with flash loans for fun and profit</div>
+                <div class="pub-authors">
+                  <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Benjamin Livshits, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2003.03810" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <a href="https://hackingdistributed.com/2020/03/11/flash-loans/" target="_blank"><svg class="fas fa-blog svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"/></svg> Blog</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // Simple Tab Switching logic
+    function switchTab(tabId) {
+      // Hide all sections
+      document.querySelectorAll('.content-section').forEach(el => {
+        el.classList.remove('active');
+      });
+      // Show target section
+      document.getElementById(tabId).classList.add('active');
+
+      // Update Nav
+      document.querySelectorAll('.nav-link').forEach(el => {
+        el.classList.remove('active');
+      });
+
+      // Find link that calls this switchTab('tabId')
+      const activeLink = Array.from(document.querySelectorAll('.nav-link')).find(l => l.getAttribute('onclick') && l.getAttribute('onclick').includes(tabId));
+      if (activeLink) activeLink.classList.add('active');
+    }
+
+    // Hash handling on load
+    window.addEventListener('load', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (['home', 'publications'].includes(hash)) {
+        switchTab(hash);
+      }
+    });
+  </script>
+</body>
+
+</html>
