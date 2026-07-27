@@ -19,13 +19,18 @@ I am always looking for self-motivated students. If you are interested, please r
 *   **Decentralized Systems**: Securing blockchains and decentralized systems, focusing on information security, distributed computing, and applied cryptography.
 *   **Cryptoeconomics**: Using game theory, mechanism design, and causal inference to align incentives and ensure resilient decentralized finance.
 *   **AI for Security**: Applying AI to enhance cybersecurity, including automating threat detection and vulnerability management.
-*   **Security of AI**: Safeguarding machine learning models against adversarial attacks, privacy breaches, and other threats.
+*   **Secure Agentic Systems**: Designing secure architectures, infrastructure, and protocols for dependable AI agent ecosystems.
 
 ## Publications
 
 Full list available on [Google Scholar](https://scholar.google.com/citations?user=-NPCrhcAAAAJ).
 
 <!-- PUBLICATIONS START -->
+### 2026
+- **[CCS]** Insecurity Through Obscurity: Veiled Vulnerabilities in Closed-Source Contracts
+  - Sen Yang, **Kaihua Qin**, Aviv Yaish, Fan Zhang
+  - [arXiv](https://arxiv.org/abs/2504.13398)
+
 ### 2025
 - **[SIGMETRICS]** Blockchain Amplification Attack
   - Taro Tsuchiya, Liyi Zhou, **Kaihua Qin**, Arthur Gervais, Nicolas Christin

@@ -32,21 +32,24 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600;6..72,700;6..72,800&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <!-- Styles & Fonts -->
 
   <style>
     /* Global Variables & Reset */
     :root {
-      --bg-color: #ffffff;
-      --text-primary: #1a1a1a;
-      --text-secondary: #555555;
-      --accent-color: #2c3e50;
-      /* Deep slate blue/grey */
-      --accent-light: #eef2f5;
-      --link-color: #0066cc;
-      --border-color: #eaeaea;
+      --bg-color: #f8f5ef;
+      --text-primary: #1f2523;
+      --text-secondary: #60645f;
+      --accent-color: #0f6b63;
+      --accent-light: #e4f0ec;
+      --link-color: #0d5f73;
+      --border-color: #e1dbd0;
       --sidebar-width: 300px;
       --spacing-unit: 1.5rem;
       /* System fonts usually display immediately, but specifying swap is good practice if we add web fonts */
@@ -247,7 +250,7 @@
 
     /* Recruit Banner */
     .recruit-banner {
-      background-color: #f8f9fa;
+      background-color: #edf7f4;
       border-left: 4px solid var(--accent-color);
       padding: 1.5rem;
       margin: 2rem 0;
@@ -428,15 +431,14 @@
     }
 
     .btn-primary:hover {
-      background-color: #34495e;
-      /* Slightly lighter */
+      background-color: #0d5f73;
       color: white;
     }
 
     .pdf-container-wrapper {
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      background: #525659;
+      background: #223a36;
       /* PDF viewer bg */
       padding: 20px;
       display: flex;
@@ -512,19 +514,19 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-# ... (skipping unchanged lines)
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="profile-section">
-        <img src="prof_pic.jpg" alt="Kaihua Qin" class="profile-img" width="160" height="160" fetchpriority="high">
-        <h1 class="profile-name">Kaihua Qin</h1>
     "name": "Kaihua Qin",
     "jobTitle": "Assistant Professor",
     "worksFor": {
       "@type": "Organization",
       "name": "University of Warwick"
     },
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Warwick"
+    },
     "url": "https://qin.ac",
+    "image": "https://qin.ac/prof_pic.jpg",
+    "email": "mailto:kaihua@qin.ac",
     "sameAs": [
       "https://scholar.google.com/citations?user=-NPCrhcAAAAJ",
       "https://x.com/KaihuaQIN",
@@ -548,6 +550,728 @@
 
     .svg-inline--fa path {
       fill: currentColor;
+    }
+
+    /* Visual refresh */
+    :root {
+      --bg-color: #f8f5ef;
+      --surface-color: #fffdf8;
+      --surface-muted: #f1ece3;
+      --text-primary: #1f2523;
+      --text-secondary: #60645f;
+      --accent-color: #0f6b63;
+      --accent-strong: #223a36;
+      --accent-warm: #0f6b63;
+      --accent-light: #e4f0ec;
+      --link-color: #0d5f73;
+      --border-color: #e1dbd0;
+      --glass-surface: rgba(255, 253, 248, 0.68);
+      --glass-surface-strong: rgba(255, 253, 248, 0.84);
+      --glass-surface-muted: rgba(241, 236, 227, 0.72);
+      --glass-warm: rgba(228, 240, 236, 0.72);
+      --glass-border: rgba(255, 253, 248, 0.78);
+      --glass-outline: rgba(225, 219, 208, 0.72);
+      --glass-shadow: 0 18px 46px rgba(31, 37, 35, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.88), inset 0 -1px 0 rgba(15, 107, 99, 0.05);
+      --shadow-soft: 0 16px 45px rgba(31, 37, 35, 0.1);
+      --shadow-lift: 0 20px 50px rgba(15, 107, 99, 0.14);
+      --sidebar-width: 300px;
+      --content-gap: 58px;
+      --font-main: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        linear-gradient(90deg, rgba(15, 107, 99, 0.035) 1px, transparent 1px) 0 0 / 48px 48px,
+        linear-gradient(180deg, #f8f5ef 0%, #fffdf8 48%, #f1ece3 100%);
+      color: var(--text-primary);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    ::selection {
+      background: var(--accent-light);
+      color: var(--accent-strong);
+    }
+
+    .app-container {
+      max-width: 1240px;
+      min-height: 100vh;
+      padding: 0 32px;
+    }
+
+    .sidebar {
+      top: 32px;
+      left: max(32px, calc(50% - 620px + 32px));
+      height: auto;
+      max-height: calc(100vh - 64px);
+      padding: 32px 26px;
+      overflow: visible;
+      background: var(--glass-surface-strong);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: blur(24px) saturate(165%);
+      -webkit-backdrop-filter: blur(24px) saturate(165%);
+      background-clip: padding-box;
+    }
+
+    .profile-section {
+      margin-bottom: 2.25rem;
+    }
+
+    .sidebar .profile-section {
+      margin-bottom: 0;
+    }
+
+    .profile-img {
+      width: 168px;
+      height: 168px;
+      margin-bottom: 1.35rem;
+      border: 4px solid #ffffff;
+      outline: 1px solid var(--border-color);
+      box-shadow: 0 18px 38px rgba(23, 33, 29, 0.14);
+    }
+
+    .profile-name {
+      color: var(--text-primary);
+      font-family: var(--font-display);
+      font-size: 2.15rem;
+      font-weight: 700;
+      font-optical-sizing: auto;
+      letter-spacing: 0;
+      line-height: 1.1;
+    }
+
+    .profile-title {
+      color: var(--accent-strong);
+      font-weight: 700;
+    }
+
+    .profile-affiliation {
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      line-height: 1.45;
+    }
+
+    .profile-affiliation a {
+      border-bottom-color: rgba(13, 95, 115, 0.3);
+    }
+
+    .profile-affiliation a:hover {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .social-links {
+      gap: 10px;
+      margin-top: 1.6rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      color: var(--accent-strong);
+      background: rgba(228, 240, 236, 0.88);
+      border: 1px solid rgba(214, 232, 227, 0.84);
+      border-radius: 8px;
+      font-size: 1rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    }
+
+    .social-link svg {
+      width: 1em;
+      height: 1em;
+      color: inherit;
+      opacity: 1;
+      flex: 0 0 auto;
+    }
+
+    .social-link:hover {
+      color: #ffffff;
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(15, 107, 99, 0.2);
+    }
+
+    .social-link:focus-visible,
+    .nav-link:focus-visible,
+    .btn:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(15, 107, 99, 0.28);
+      outline-offset: 3px;
+    }
+
+    .nav-menu {
+      margin: 0;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .nav-link:hover {
+      background: var(--accent-light);
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    .nav-link.active {
+      background: var(--accent-strong);
+      color: #ffffff;
+      box-shadow: 0 12px 26px rgba(34, 58, 54, 0.22);
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 34px;
+      z-index: 20;
+      margin: 0 0 38px;
+      padding: 8px;
+      background: var(--glass-surface-strong);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: blur(24px) saturate(165%);
+      -webkit-backdrop-filter: blur(24px) saturate(165%);
+      background-clip: padding-box;
+    }
+
+    .top-nav ul {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-nav .nav-item {
+      margin: 0;
+    }
+
+    .top-nav .nav-link {
+      min-height: 40px;
+      padding: 0 15px;
+      white-space: nowrap;
+    }
+
+    .main-content {
+      max-width: 830px;
+      margin-left: calc(var(--sidebar-width) + var(--content-gap));
+      padding: 34px 0 90px;
+    }
+
+    h1,
+    h2 {
+      color: var(--text-primary);
+      font-family: var(--font-display);
+      font-optical-sizing: auto;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      color: var(--text-primary);
+      letter-spacing: 0;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 3rem 0 1.2rem;
+      padding: 0;
+      border: 0;
+      font-size: 1.7rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border-color), rgba(225, 219, 208, 0));
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 1.02rem;
+    }
+
+    a {
+      color: var(--link-color);
+      font-weight: 600;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent-color);
+    }
+
+    .content-section {
+      animation: fadeIn 0.24s ease;
+    }
+
+    .recruit-banner {
+      position: relative;
+      overflow: hidden;
+      margin: 2.2rem 0 2.6rem;
+      padding: 1.35rem 1.45rem;
+      background: var(--glass-warm);
+      border: 1px solid rgba(15, 107, 99, 0.16);
+      border-left: 5px solid var(--accent-warm);
+      border-radius: 8px;
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+      background-clip: padding-box;
+    }
+
+    .recruit-title {
+      color: var(--accent-strong);
+      font-size: 1rem;
+    }
+
+    .recruit-title svg {
+      width: 1rem;
+      color: var(--accent-warm);
+    }
+
+    .recruit-banner p {
+      margin: 0;
+    }
+
+    .research-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 1.4rem;
+    }
+
+    .research-card {
+      min-height: 235px;
+      padding: 1.35rem;
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+      background-clip: padding-box;
+    }
+
+    .research-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lift);
+      border-color: rgba(15, 107, 99, 0.24);
+    }
+
+    .research-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 1.05rem;
+      color: var(--accent-color);
+      background: rgba(228, 240, 236, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 8px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(14px) saturate(145%);
+      -webkit-backdrop-filter: blur(14px) saturate(145%);
+    }
+
+    .research-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .research-card h3 {
+      color: var(--text-primary);
+      font-size: 1.08rem;
+      line-height: 1.25;
+    }
+
+    .research-card p {
+      font-size: 0.95rem;
+      line-height: 1.62;
+    }
+
+    .year-group {
+      margin-bottom: 2.1rem;
+    }
+
+    .year-header {
+      color: var(--accent-strong);
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      min-height: 42px;
+      padding: 0.25rem 0.35rem;
+      border-radius: 8px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .year-header:hover {
+      background: rgba(228, 240, 236, 0.78);
+    }
+
+    .year-header:focus-visible {
+      outline: 3px solid rgba(15, 107, 99, 0.28);
+      outline-offset: 3px;
+    }
+
+    .year-toggle-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-right: 0.55rem;
+      color: var(--accent-strong);
+      background: var(--glass-surface-muted);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      flex: 0 0 auto;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(14px) saturate(145%);
+      -webkit-backdrop-filter: blur(14px) saturate(145%);
+    }
+
+    .year-toggle-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      transition: transform 0.2s ease;
+    }
+
+    .year-group.is-collapsed .year-toggle-icon svg {
+      transform: rotate(-90deg);
+    }
+
+    .year-label {
+      font-family: var(--font-display);
+      font-optical-sizing: auto;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .year-header::after {
+      background: linear-gradient(90deg, var(--border-color), rgba(225, 219, 208, 0));
+    }
+
+    .pub-list {
+      margin: 0;
+    }
+
+    .year-group.is-collapsed {
+      margin-bottom: 1rem;
+    }
+
+    .year-group.is-collapsed .pub-list {
+      display: none;
+    }
+
+    .pub-item {
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 0.85rem;
+      padding: 1.1rem;
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      backdrop-filter: blur(18px) saturate(145%);
+      -webkit-backdrop-filter: blur(18px) saturate(145%);
+      background-clip: padding-box;
+    }
+
+    .pub-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(15, 107, 99, 0.22);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.07);
+    }
+
+    .pub-venue-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: start;
+      min-height: 32px;
+      min-width: 0;
+      max-width: none;
+      width: 112px;
+      padding: 0.34rem 0.7rem;
+      color: var(--accent-color);
+      background: rgba(228, 240, 236, 0.84);
+      border: 1px solid rgba(15, 107, 99, 0.18);
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      text-align: center;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+    }
+
+    .pub-title {
+      color: var(--text-primary);
+      font-size: 1.02rem;
+      line-height: 1.42;
+    }
+
+    .pub-authors {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .author-highlight,
+    .author-me {
+      color: inherit;
+      font-weight: 700;
+      border-bottom: 0;
+    }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 0.65rem;
+    }
+
+    .pub-links a {
+      gap: 6px;
+      margin: 0;
+      padding: 0.32rem 0.55rem;
+      color: var(--link-color);
+      background: rgba(228, 240, 236, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+    }
+
+    .pub-links a:hover {
+      color: #ffffff;
+      background: var(--link-color);
+      border-color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .pub-links svg {
+      width: 0.9rem;
+      height: 0.9rem;
+    }
+
+    .btn {
+      min-height: 40px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: var(--accent-strong);
+      border-color: var(--accent-strong);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+
+    .pdf-container-wrapper {
+      border-radius: 8px;
+      box-shadow: var(--glass-shadow);
+    }
+
+    @media (max-width: 980px) {
+      .app-container {
+        display: block;
+        padding: 0;
+      }
+
+      .sidebar {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding: 24px 20px 18px;
+        border-right: 0;
+        border-left: 0;
+        border-top: 0;
+        border-radius: 0;
+      }
+
+      .profile-section {
+        display: grid;
+        grid-template-columns: 104px minmax(0, 1fr);
+        gap: 4px 18px;
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: left;
+        align-items: center;
+      }
+
+      .profile-section picture {
+        grid-row: 1 / span 4;
+      }
+
+      .profile-img {
+        width: 104px;
+        height: 104px;
+        margin: 0;
+      }
+
+      .profile-name {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+      }
+
+      .social-links {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+        margin-top: 0.9rem;
+      }
+
+      .top-nav {
+        max-width: 760px;
+        top: 0;
+        margin: 0 auto 34px;
+      }
+
+      .top-nav ul {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+
+      .top-nav ul::-webkit-scrollbar {
+        display: none;
+      }
+
+      .top-nav .nav-link {
+        min-width: 112px;
+        white-space: nowrap;
+      }
+
+      .main-content {
+        max-width: 840px;
+        margin-left: 0;
+        padding: 22px 22px 70px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      body {
+        background: linear-gradient(180deg, #f8f5ef 0%, #fffdf8 55%, #f1ece3 100%);
+      }
+
+      h2 {
+        gap: 12px;
+        font-size: 1.32rem;
+      }
+
+      p {
+        font-size: 0.98rem;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-card {
+        min-height: auto;
+      }
+
+      .pub-item {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .pub-venue-tag {
+        width: 112px;
+        justify-self: start;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+      .profile-section {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .profile-section picture {
+        grid-row: auto;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .top-nav ul {
+        justify-content: center;
+        overflow-x: visible;
+      }
+
+      .top-nav .nav-link {
+        min-width: 0;
+        padding-inline: 12px;
+        font-size: 0.95rem;
+      }
+
+      .main-content {
+        padding-inline: 18px;
+      }
+
+      .recruit-banner {
+        padding: 1.15rem;
+      }
+
     }
   </style>
 </head>
@@ -610,11 +1334,14 @@
           </a>
         </div>
       </div>
+    </aside>
 
-      <nav class="nav-menu">
+    <!-- Main Content -->
+    <main class="main-content">
+      <nav class="nav-menu top-nav" aria-label="Primary">
         <ul>
           <li class="nav-item">
-            <a class="nav-link active" href="#home" onclick="switchTab('home'); return false;">Home</a>
+            <a class="nav-link active" aria-current="page" href="#home" onclick="switchTab('home'); return false;">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#publications" onclick="switchTab('publications'); return false;">Publications</a>
@@ -630,10 +1357,6 @@
           </li>
         </ul>
       </nav>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
 
       <!-- Home Section -->
       <section id="home" class="content-section active">
@@ -663,29 +1386,53 @@
         <h2>Research Interests</h2>
         <div class="research-grid">
           <div class="research-card">
-            <div class="research-icon"><i class="fas fa-network-wired"></i></div>
+            <div class="research-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="6" cy="7" r="2.4" />
+                <circle cx="18" cy="7" r="2.4" />
+                <circle cx="12" cy="17" r="2.4" />
+                <path d="M8.2 8.2l2.7 6.5M15.8 8.2l-2.7 6.5M8.5 7h7" />
+              </svg>
+            </div>
             <h3>Decentralized Systems</h3>
             <p>Securing blockchains and decentralized systems, focusing on information security, distributed computing,
               and applied cryptography.</p>
           </div>
 
           <div class="research-card">
-            <div class="research-icon"><i class="fas fa-coins"></i></div>
+            <div class="research-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="8" cy="8" r="3.2" />
+                <path d="M5.2 10.2v3.2c0 1.8 1.3 3.2 2.8 3.2s2.8-1.4 2.8-3.2v-3.2" />
+                <path d="M14 7h5M14 12h5M14 17h5" />
+              </svg>
+            </div>
             <h3>Cryptoeconomics</h3>
             <p>Using game theory, mechanism design, and causal inference to align incentives and ensure resilient
               decentralized finance.</p>
           </div>
 
           <div class="research-card">
-            <div class="research-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="research-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 3.5l6.5 2.6v5.2c0 4.5-2.6 7.5-6.5 9.2-3.9-1.7-6.5-4.7-6.5-9.2V6.1L12 3.5Z" />
+                <path d="M9 12h6M12 9v6" />
+              </svg>
+            </div>
             <h3>AI for Security</h3>
             <p>Applying AI to enhance cybersecurity, including automating threat detection and vulnerability management.
             </p>
           </div>
           <div class="research-card">
-            <div class="research-icon"><i class="fas fa-robot"></i></div>
-            <h3>Security of AI</h3>
-            <p>Safeguarding machine learning models against adversarial attacks, privacy breaches, and other threats.
+            <div class="research-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <rect x="5" y="6" width="14" height="12" rx="4" />
+                <path d="M12 6V3.5M8.5 11h.1M15.5 11h.1M9 15h6" />
+                <path d="M4 12H2.5M21.5 12H20" />
+              </svg>
+            </div>
+            <h3>Secure Agentic Systems</h3>
+            <p>Designing secure architectures, infrastructure, and protocols for dependable AI agent ecosystems.
             </p>
           </div>
         </div>
@@ -698,6 +1445,24 @@
             href="https://scholar.google.com/citations?user=-NPCrhcAAAAJ" target="_blank">Google Scholar</a>.</p>
 
         <div class="year-group">
+          <div class="year-header">2026</div>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <div class="pub-venue-tag">CCS</div>
+              <div class="pub-details">
+                <div class="pub-title">Insecurity Through Obscurity: Veiled Vulnerabilities in Closed-Source Contracts</div>
+                <div class="pub-authors">
+                  Sen Yang, <strong class="author-highlight">Kaihua Qin</strong>, Aviv Yaish, Fan Zhang
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2504.13398" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="year-group">
           <div class="year-header">2025</div>
           <ul class="pub-list">
             <li class="pub-item">
@@ -705,16 +1470,10 @@
               <div class="pub-details">
                 <div class="pub-title">Enhancing Smart Contract Security Analysis with Execution Property Graphs</div>
                 <div class="pub-authors">
-                  <strong class="author-highlight">Kaihua Qin</strong>, Zhe Ye, Zhun Wang, Weilin Li, Liyi Zhou, Chao
-                  Zhang, Dawn Song, Arthur Gervais
+                  <strong class="author-highlight">Kaihua Qin</strong>, Zhe Ye, Zhun Wang, Weilin Li, Liyi Zhou, Chao Zhang, Dawn Song, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2305.14046" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2305.14046" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
@@ -723,35 +1482,22 @@
               <div class="pub-details">
                 <div class="pub-title">Blockchain Amplification Attack</div>
                 <div class="pub-authors">
-                  Taro Tsuchiya, Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Arthur Gervais,
-                  Nicolas Christin
+                  Taro Tsuchiya, Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Arthur Gervais, Nicolas Christin
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2408.01508" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2408.01508" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
             <li class="pub-item">
               <div class="pub-venue-tag">S&amp;P</div>
               <div class="pub-details">
-                <div class="pub-title">Security Perceptions of Users in Stablecoins: Advantages and Risks within the
-                  Cryptocurrency Ecosystem</div>
+                <div class="pub-title">Security Perceptions of Users in Stablecoins: Advantages and Risks within the Cryptocurrency Ecosystem</div>
                 <div class="pub-authors">
-                  Maggie Yongqi Guan, Yaman Yu, Tanusree Sharma, Molly Zhuangtong Huang, <strong
-                    class="author-highlight">Kaihua Qin</strong>, Yang Wang, Kanye Ye Wang
+                  Maggie Yongqi Guan, Yaman Yu, Tanusree Sharma, Molly Zhuangtong Huang, <strong class="author-highlight">Kaihua Qin</strong>, Yang Wang, Kanye Ye Wang
                 </div>
                 <div class="pub-links">
-                  <a href="https://eprint.iacr.org/2024/1538" target="_blank"><svg
-                      class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                      role="img" aria-hidden="true" focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> ePrint</a>
+                  <a href="https://eprint.iacr.org/2024/1538" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> ePrint</a>
                 </div>
               </div>
             </li>
@@ -764,8 +1510,7 @@
             <li class="pub-item">
               <div class="pub-venue-tag">AFT</div>
               <div class="pub-details">
-                <div class="pub-title">DeFiAligner: Leveraging Symbolic Analysis and Large Language Models for
-                  Inconsistency Detection in Decentralized Finance</div>
+                <div class="pub-title">DeFiAligner: Leveraging Symbolic Analysis and Large Language Models for Inconsistency Detection in Decentralized Finance</div>
                 <div class="pub-authors">
                   Rundong Gan, Liyi Zhou, Le Wang, <strong class="author-highlight">Kaihua Qin</strong>, Xiaodong Lin
                 </div>
@@ -777,16 +1522,10 @@
               <div class="pub-details">
                 <div class="pub-title">What Drives the (In) stability of a Stablecoin?</div>
                 <div class="pub-authors">
-                  Yujin Potter, Kornrapat Pongmala, <strong class="author-highlight">Kaihua Qin</strong>, Ariah
-                  Klages-Mundt, Philipp Jovanovic, Christine Parlour, Arthur Gervais, Dawn Song
+                  Yujin Potter, Kornrapat Pongmala, <strong class="author-highlight">Kaihua Qin</strong>, Ariah Klages-Mundt, Philipp Jovanovic, Christine Parlour, Arthur Gervais, Dawn Song
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2307.11754" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2307.11754" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
@@ -795,16 +1534,10 @@
               <div class="pub-details">
                 <div class="pub-title">Speculative Denial-of-Service Attacks In Ethereum</div>
                 <div class="pub-authors">
-                  Aviv Yaish, <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Aviv Zohar, Arthur
-                  Gervais
+                  Aviv Yaish, <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Aviv Zohar, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://eprint.iacr.org/2023/956" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> ePrint</a>
+                  <a href="https://eprint.iacr.org/2023/956" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> ePrint</a>
                 </div>
               </div>
             </li>
@@ -813,17 +1546,10 @@
               <div class="pub-details">
                 <div class="pub-title">Blockchain censorship</div>
                 <div class="pub-authors">
-                  Anton Wahrstätter, Jens Ernstberger, Aviv Yaish, Liyi Zhou, <strong class="author-highlight">Kaihua
-                    Qin</strong>, Taro Tsuchiya, Sebastian Steinhorst, Davor Svetinovic, Nicolas Christin, Mikolaj
-                  Barczentewicz, others
+                  Anton Wahrstätter, Jens Ernstberger, Aviv Yaish, Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Taro Tsuchiya, Sebastian Steinhorst, Davor Svetinovic, Nicolas Christin, Mikolaj Barczentewicz, others
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2305.18545" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2305.18545" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
@@ -838,22 +1564,11 @@
               <div class="pub-details">
                 <div class="pub-title">The blockchain imitation game</div>
                 <div class="pub-authors">
-                  <strong class="author-highlight">Kaihua Qin</strong>, Stefanos Chaliasos, Liyi Zhou, Benjamin
-                  Livshits, Dawn Song, Arthur Gervais
+                  <strong class="author-highlight">Kaihua Qin</strong>, Stefanos Chaliasos, Liyi Zhou, Benjamin Livshits, Dawn Song, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2303.17877" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
-                  <a href="https://medium.com/@kaihua.qin/the-blockchain-imitation-game-c489553efd83"
-                    target="_blank"><svg class="fas fa-blog svg-inline--fa" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false">
-                      <path fill="currentColor"
-                        d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z" />
-                    </svg> Blog</a>
+                  <a href="https://arxiv.org/abs/2303.17877" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <a href="https://medium.com/@kaihua.qin/the-blockchain-imitation-game-c489553efd83" target="_blank"><svg class="fas fa-blog svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"/></svg> Blog</a>
                 </div>
               </div>
             </li>
@@ -862,35 +1577,22 @@
               <div class="pub-details">
                 <div class="pub-title">Mitigating decentralized finance liquidations with reversible call options</div>
                 <div class="pub-authors">
-                  <strong class="author-highlight">Kaihua Qin</strong>, Jens Ernstberger, Liyi Zhou, Philipp Jovanovic,
-                  Arthur Gervais
+                  <strong class="author-highlight">Kaihua Qin</strong>, Jens Ernstberger, Liyi Zhou, Philipp Jovanovic, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2303.15162" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2303.15162" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
             <li class="pub-item">
               <div class="pub-venue-tag">WWW</div>
               <div class="pub-details">
-                <div class="pub-title">On how zero-knowledge proof blockchain mixers improve, and worsen user privacy
-                </div>
+                <div class="pub-title">On how zero-knowledge proof blockchain mixers improve, and worsen user privacy</div>
                 <div class="pub-authors">
-                  Zhipeng Wang, Stefanos Chaliasos, <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou,
-                  Lifeng Gao, Pascal Berrang, Benjamin Livshits, Arthur Gervais
+                  Zhipeng Wang, Stefanos Chaliasos, <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Lifeng Gao, Pascal Berrang, Benjamin Livshits, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2201.09035" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2201.09035" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
@@ -899,16 +1601,10 @@
               <div class="pub-details">
                 <div class="pub-title">Sok: Decentralized finance (defi) attacks</div>
                 <div class="pub-authors">
-                  Liyi Zhou, Xihan Xiong, Jens Ernstberger, Stefanos Chaliasos, Zhipeng Wang, Ye Wang, <strong
-                    class="author-highlight">Kaihua Qin</strong>, Roger Wattenhofer, Dawn Song, Arthur Gervais
+                  Liyi Zhou, Xihan Xiong, Jens Ernstberger, Stefanos Chaliasos, Zhipeng Wang, Ye Wang, <strong class="author-highlight">Kaihua Qin</strong>, Roger Wattenhofer, Dawn Song, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2208.13035" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2208.13035" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
@@ -926,12 +1622,7 @@
                   <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2101.05511" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2101.05511" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
@@ -954,19 +1645,12 @@
             <li class="pub-item">
               <div class="pub-venue-tag">IMC</div>
               <div class="pub-details">
-                <div class="pub-title">An empirical study of defi liquidations: Incentives, risks, and instabilities
-                </div>
+                <div class="pub-title">An empirical study of defi liquidations: Incentives, risks, and instabilities</div>
                 <div class="pub-authors">
-                  <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Pablo Gamito, Philipp Jovanovic,
-                  Arthur Gervais
+                  <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Pablo Gamito, Philipp Jovanovic, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2106.06389" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2106.06389" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
@@ -975,35 +1659,22 @@
               <div class="pub-details">
                 <div class="pub-title">High-frequency trading on decentralized on-chain exchanges</div>
                 <div class="pub-authors">
-                  Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Christof Ferreira Torres, Duc V Le,
-                  Arthur Gervais
+                  Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Christof Ferreira Torres, Duc V Le, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2009.14021" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2009.14021" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
             <li class="pub-item">
               <div class="pub-venue-tag">S&amp;P</div>
               <div class="pub-details">
-                <div class="pub-title">On the just-in-time discovery of profit-generating transactions in defi protocols
-                </div>
+                <div class="pub-title">On the just-in-time discovery of profit-generating transactions in defi protocols</div>
                 <div class="pub-authors">
-                  Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Antoine Cully, Benjamin Livshits,
-                  Arthur Gervais
+                  Liyi Zhou, <strong class="author-highlight">Kaihua Qin</strong>, Antoine Cully, Benjamin Livshits, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2103.02228" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
+                  <a href="https://arxiv.org/abs/2103.02228" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                 </div>
               </div>
             </li>
@@ -1015,18 +1686,8 @@
                   <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Benjamin Livshits, Arthur Gervais
                 </div>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2003.03810" target="_blank"><svg class="far fa-file-pdf svg-inline--fa"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true"
-                      focusable="false">
-                      <path fill="currentColor"
-                        d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
-                    </svg> arXiv</a>
-                  <a href="https://hackingdistributed.com/2020/03/11/flash-loans/" target="_blank"><svg
-                      class="fas fa-blog svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                      role="img" aria-hidden="true" focusable="false">
-                      <path fill="currentColor"
-                        d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z" />
-                    </svg> Blog</a>
+                  <a href="https://arxiv.org/abs/2003.03810" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <a href="https://hackingdistributed.com/2020/03/11/flash-loans/" target="_blank"><svg class="fas fa-blog svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"/></svg> Blog</a>
                 </div>
               </div>
             </li>
@@ -1039,31 +1700,104 @@
   </div>
 
   <script>
-    // Simple Tab Switching logic
-    function switchTab(tabId) {
-      // Hide all sections
+    function setYearCollapsed(group, collapsed) {
+      const header = group.querySelector('.year-header');
+      group.classList.toggle('is-collapsed', collapsed);
+      if (header) {
+        header.setAttribute('aria-expanded', String(!collapsed));
+      }
+    }
+
+    function initPublicationToggles() {
+      const section = document.getElementById('publications');
+      if (!section) return;
+
+      const groups = Array.from(section.querySelectorAll('.year-group'));
+      if (!groups.length) return;
+
+      groups.forEach((group, index) => {
+        const header = group.querySelector('.year-header');
+        const list = group.querySelector('.pub-list');
+        if (!header || !list || header.dataset.toggleReady === 'true') return;
+
+        const year = header.textContent.trim();
+        const listId = list.id || `publications-${year}-${index}`;
+
+        list.id = listId;
+        header.textContent = '';
+
+        const icon = document.createElement('span');
+        icon.className = 'year-toggle-icon';
+        icon.setAttribute('aria-hidden', 'true');
+        icon.innerHTML = '<svg viewBox="0 0 24 24" focusable="false"><path d="M6 9l6 6 6-6" /></svg>';
+
+        const label = document.createElement('span');
+        label.className = 'year-label';
+        label.textContent = year;
+
+        header.append(icon, label);
+        header.dataset.toggleReady = 'true';
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-controls', listId);
+        header.setAttribute('aria-expanded', 'true');
+
+        header.addEventListener('click', () => {
+          setYearCollapsed(group, !group.classList.contains('is-collapsed'));
+        });
+
+        header.addEventListener('keydown', event => {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          event.preventDefault();
+          setYearCollapsed(group, !group.classList.contains('is-collapsed'));
+        });
+      });
+    }
+
+    function switchTab(tabId, options = {}) {
+      const target = document.getElementById(tabId);
+      if (!target) return;
+
       document.querySelectorAll('.content-section').forEach(el => {
         el.classList.remove('active');
       });
-      // Show target section
-      document.getElementById(tabId).classList.add('active');
+      target.classList.add('active');
 
-      // Update Nav
       document.querySelectorAll('.nav-link').forEach(el => {
-        el.classList.remove('active');
+        const isActive = el.getAttribute('onclick') && el.getAttribute('onclick').includes(tabId);
+        el.classList.toggle('active', isActive);
+        if (isActive) {
+          el.setAttribute('aria-current', 'page');
+        } else {
+          el.removeAttribute('aria-current');
+        }
       });
 
-      // Find link that calls this switchTab('tabId')
-      const activeLink = Array.from(document.querySelectorAll('.nav-link')).find(l => l.getAttribute('onclick') && l.getAttribute('onclick').includes(tabId));
-      if (activeLink) activeLink.classList.add('active');
+      if (options.updateHash !== false && window.location.hash !== `#${tabId}`) {
+        history.replaceState(null, '', `#${tabId}`);
+      }
+
+      if (options.scroll !== false) {
+        window.scrollTo({ top: 0, behavior: options.smooth ? 'smooth' : 'auto' });
+      }
     }
 
-    // Hash handling on load
-    window.addEventListener('load', () => {
+    function syncTabFromHash(options = {}) {
       const hash = window.location.hash.replace('#', '');
       if (['home', 'publications'].includes(hash)) {
-        switchTab(hash);
+        switchTab(hash, { ...options, updateHash: false });
+      } else if (!hash) {
+        switchTab('home', { ...options, updateHash: false });
       }
+    }
+
+    window.addEventListener('load', () => {
+      initPublicationToggles();
+      syncTabFromHash({ scroll: false });
+    });
+
+    window.addEventListener('hashchange', () => {
+      syncTabFromHash({ smooth: true });
     });
   </script>
 </body>
