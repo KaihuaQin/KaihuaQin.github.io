@@ -20,17 +20,18 @@
     content="Researching blockchain security, decentralized systems, and AI for cybersecurity. Recruiting PhD students.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://qin.ac">
-  <meta property="og:image" content="prof_pic.jpg">
+  <meta property="og:image" content="https://qin.ac/prof_pic.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Kaihua Qin | Assistant Professor">
   <meta name="twitter:description"
     content="Researching blockchain security, decentralized systems, and AI for cybersecurity. Recruiting PhD students.">
-  <meta name="twitter:image" content="prof_pic.jpg">
+  <meta name="twitter:image" content="https://qin.ac/prof_pic.jpg">
 
   <link rel="canonical" href="https://qin.ac">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -529,6 +530,7 @@
     "email": "mailto:kaihua@qin.ac",
     "sameAs": [
       "https://scholar.google.com/citations?user=-NPCrhcAAAAJ",
+      "https://orcid.org/0000-0003-2190-3623",
       "https://x.com/KaihuaQIN",
       "https://github.com/kaihuaqin",
       "https://www.linkedin.com/in/kaihuaqin"
@@ -669,8 +671,10 @@
 
     .social-links {
       gap: 10px;
-      margin-top: 1.6rem;
+      margin: 1.6rem auto 0;
       flex-wrap: wrap;
+      justify-content: center;
+      max-width: 146px;
     }
 
     .social-link {
@@ -1103,6 +1107,50 @@
       height: 0.9rem;
     }
 
+    .pub-links button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0;
+      padding: 0.32rem 0.55rem;
+      color: var(--link-color);
+      background: rgba(228, 240, 236, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 8px;
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+    }
+
+    .pub-links button:hover,
+    .pub-links button.is-copied {
+      color: #ffffff;
+      background: var(--link-color);
+      border-color: var(--link-color);
+    }
+
+    .pub-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 0.5rem;
+    }
+
+    .pub-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      color: #7a4e12;
+      background: #f6ead4;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
     .btn {
       min-height: 40px;
       border-radius: 8px;
@@ -1171,7 +1219,8 @@
       .social-links {
         grid-column: 1 / -1;
         justify-content: flex-start;
-        margin-top: 0.9rem;
+        max-width: none;
+        margin: 0.9rem 0 0;
       }
 
       .top-nav {
@@ -1304,6 +1353,13 @@
                 d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z" />
             </svg>
           </a>
+          <a href="https://orcid.org/0000-0003-2190-3623" target="_blank" class="social-link" title="ORCID" rel="me">
+            <svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img"
+              aria-hidden="true" focusable="false">
+              <path fill="currentColor"
+                d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128zM86.3 186.2H70.9V79.1h15.4v107.1zm61.9-81.1c-19.8 0-32.1 14.2-32.1 32.8v16.6c0 18.6 12.3 32.8 32.1 32.8 19.6 0 31.8-14.3 31.8-32.8v-16.6c0-18.5-12.2-32.8-31.8-32.8zm16.4 50.1c0 9.4-5.4 15.5-16.4 15.5s-16.7-6.1-16.7-15.5v-18.1c0-9.3 5.6-15.4 16.7-15.4s16.4 6.1 16.4 15.4v18.1z" />
+            </svg>
+          </a>
           <a href="https://x.com/KaihuaQIN" target="_blank" class="social-link" title="X (Twitter)">
             <svg class="fab fa-x-twitter svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
               role="img" aria-hidden="true" focusable="false">
@@ -1363,14 +1419,26 @@
         <h2>About Me</h2>
         <p>
           I am an Assistant Professor in the Department of Computer Science at the University of Warwick.
-          Before joining Warwick, I was with Yale University, hosted by Prof. Fan Zhang and Prof. Zhong Shao.
         </p>
         <p>
-          I earned my PhD at Imperial College London under the supervision of Prof. Arthur Gervais.
-          Prior to that, I received my MSc from Imperial College London and my BE from Southeast University.
+          My research focuses on understanding and tackling security challenges in emerging computational
+          systems. I study how new system architectures create novel security, trust, and incentive
+          problems, and develop principled methods to analyze and address them. Across these domains, I am
+          interested in both uncovering new vulnerabilities and designing practical defenses, combining
+          rigorous systems and security research with AI-based techniques for analyzing, protecting, and
+          optimizing complex systems.
         </p>
         <p>
-          I co-founded Decentralized Intelligence (D23E), where we advance decentralization and intelligence.
+          A major part of my work investigates decentralized systems such as blockchains and DeFi, drawing
+          on distributed systems, applied cryptography, confidential computing, game theory, and mechanism
+          design to understand their security and incentive structures. I also increasingly study AI-driven
+          and agentic systems, including the security risks that arise when autonomous agents interact with
+          software, users, markets, and one another.
+        </p>
+        <p>
+          Ultimately, my goal is to understand the security foundations of emerging technologies and
+          translate that understanding into practical tools and mechanisms that make future digital
+          infrastructure more secure, trustworthy, and robust.
         </p>
 
         <div class="recruit-banner">
@@ -1448,6 +1516,25 @@
           <div class="year-header">2026</div>
           <ul class="pub-list">
             <li class="pub-item">
+              <div class="pub-venue-tag">NeurIPS</div>
+              <div class="pub-details">
+                <div class="pub-title">SCDBench: A Benchmark for LLM-Based Smart Contract Decompilers</div>
+                <div class="pub-authors">
+                  <strong class="author-highlight">Kaihua Qin</strong>, Dawn Song, Arthur Gervais
+                </div>
+                <div class="pub-links">
+                  <a href="https://arxiv.org/abs/2605.29059" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{qin2026scdbench,
+  author = {Qin, Kaihua and Song, Dawn and Gervais, Arthur},
+  title = {SCDBench: A Benchmark for LLM-Based Smart Contract Decompilers},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year = {2026},
+  volume = {39},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
+                </div>
+              </div>
+            </li>
+            <li class="pub-item">
               <div class="pub-venue-tag">CCS</div>
               <div class="pub-details">
                 <div class="pub-title">Insecurity Through Obscurity: Veiled Vulnerabilities in Closed-Source Contracts</div>
@@ -1456,6 +1543,15 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2504.13398" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{yang2026insecurity,
+  author = {Yang, Sen and Qin, Kaihua and Yaish, Aviv and Zhang, Fan},
+  title = {Insecurity Through Obscurity: Veiled Vulnerabilities in Closed-Source Contracts},
+  booktitle = {Proceedings of the 2026 ACM SIGSAC Conference on Computer and Communications Security},
+  year = {2026},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  doi = {10.1145/3830454.3832723},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1474,6 +1570,13 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2305.14046" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{qin2025towards,
+  author = {Qin, Kaihua and Ye, Zhe and Wang, Zhun and Li, Weilin and Zhou, Liyi and Zhang, Chao and Song, Dawn and Gervais, Arthur},
+  title = {Enhancing Smart Contract Security Analysis with Execution Property Graphs},
+  booktitle = {Proceedings of the 32nd ACM SIGSOFT International Symposium on Software Testing and Analysis},
+  year = {2025},
+  pages = {322--333},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1486,6 +1589,16 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2408.01508" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@article{tsuchiya2025blockchain,
+  author = {Tsuchiya, Taro and Zhou, Liyi and Qin, Kaihua and Gervais, Arthur and Christin, Nicolas},
+  title = {Blockchain Amplification Attack},
+  journal = {Proceedings of the ACM on Measurement and Analysis of Computing Systems},
+  year = {2025},
+  volume = {9},
+  number = {1},
+  pages = {1--30},
+  publisher = {ACM New York, NY, USA},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1498,6 +1611,13 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://eprint.iacr.org/2024/1538" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> ePrint</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{guan2025security,
+  author = {Guan, Maggie Yongqi and Yu, Yaman and Sharma, Tanusree and Huang, Molly Zhuangtong and Qin, Kaihua and Wang, Yang and Wang, Kanye Ye},
+  title = {Security Perceptions of Users in Stablecoins: Advantages and Risks within the Cryptocurrency Ecosystem},
+  booktitle = {2025 IEEE Symposium on Security and Privacy (SP)},
+  year = {2025},
+  organization = {IEEE},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1514,7 +1634,17 @@
                 <div class="pub-authors">
                   Rundong Gan, Liyi Zhou, Le Wang, <strong class="author-highlight">Kaihua Qin</strong>, Xiaodong Lin
                 </div>
-
+                <div class="pub-links">
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{gan2024defialigner,
+  author = {Gan, Rundong and Zhou, Liyi and Wang, Le and Qin, Kaihua and Lin, Xiaodong},
+  title = {DeFiAligner: Leveraging Symbolic Analysis and Large Language Models for Inconsistency Detection in Decentralized Finance},
+  booktitle = {6th Conference on Advances in Financial Technologies (AFT 2024)},
+  year = {2024},
+  pages = {7--1},
+  organization = {Schloss Dagstuhl--Leibniz-Zentrum für Informatik},
+  doi = {10.4230/LIPIcs.AFT.2024.7},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
+                </div>
               </div>
             </li>
             <li class="pub-item">
@@ -1526,6 +1656,14 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2307.11754" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{potter2024drives,
+  author = {Potter, Yujin and Pongmala, Kornrapat and Qin, Kaihua and Klages-Mundt, Ariah and Jovanovic, Philipp and Parlour, Christine and Gervais, Arthur and Song, Dawn},
+  title = {What Drives the (In) stability of a Stablecoin?},
+  booktitle = {2024 IEEE International Conference on Blockchain and Cryptocurrency (ICBC)},
+  year = {2024},
+  pages = {316--324},
+  organization = {IEEE},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1538,6 +1676,13 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://eprint.iacr.org/2023/956" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> ePrint</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{yaish2024speculative,
+  author = {Yaish, Aviv and Qin, Kaihua and Zhou, Liyi and Zohar, Aviv and Gervais, Arthur},
+  title = {Speculative Denial-of-Service Attacks In Ethereum},
+  booktitle = {33rd USENIX Security Symposium (USENIX Security 24)},
+  year = {2024},
+  pages = {3531--3548},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1550,6 +1695,13 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2305.18545" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{wahrstatter2024blockchain,
+  author = {Wahrstätter, Anton and Ernstberger, Jens and Yaish, Aviv and Zhou, Liyi and Qin, Kaihua and Tsuchiya, Taro and Steinhorst, Sebastian and Svetinovic, Davor and Christin, Nicolas and Barczentewicz, Mikolaj and others},
+  title = {Blockchain censorship},
+  booktitle = {Proceedings of the ACM Web Conference 2024},
+  year = {2024},
+  pages = {1632--1643},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1566,9 +1718,19 @@
                 <div class="pub-authors">
                   <strong class="author-highlight">Kaihua Qin</strong>, Stefanos Chaliasos, Liyi Zhou, Benjamin Livshits, Dawn Song, Arthur Gervais
                 </div>
+                <div class="pub-tags">
+                  <span class="pub-tag">Best DeFi Papers Award 2023</span><span class="pub-tag">SBC'23</span>
+                </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2303.17877" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                   <a href="https://medium.com/@kaihua.qin/the-blockchain-imitation-game-c489553efd83" target="_blank"><svg class="fas fa-blog svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"/></svg> Blog</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{qin2023blockchain,
+  author = {Qin, Kaihua and Chaliasos, Stefanos and Zhou, Liyi and Livshits, Benjamin and Song, Dawn and Gervais, Arthur},
+  title = {The blockchain imitation game},
+  booktitle = {32nd USENIX Security Symposium (USENIX Security 23)},
+  year = {2023},
+  pages = {3961--3978},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1581,6 +1743,14 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2303.15162" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{qin2023mitigating,
+  author = {Qin, Kaihua and Ernstberger, Jens and Zhou, Liyi and Jovanovic, Philipp and Gervais, Arthur},
+  title = {Mitigating decentralized finance liquidations with reversible call options},
+  booktitle = {International Conference on Financial Cryptography and Data Security},
+  year = {2023},
+  pages = {344--362},
+  organization = {Springer},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1593,6 +1763,13 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2201.09035" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{wang2023zero,
+  author = {Wang, Zhipeng and Chaliasos, Stefanos and Qin, Kaihua and Zhou, Liyi and Gao, Lifeng and Berrang, Pascal and Livshits, Benjamin and Gervais, Arthur},
+  title = {On how zero-knowledge proof blockchain mixers improve, and worsen user privacy},
+  booktitle = {Proceedings of the ACM Web Conference 2023},
+  year = {2023},
+  pages = {2022--2032},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1603,8 +1780,19 @@
                 <div class="pub-authors">
                   Liyi Zhou, Xihan Xiong, Jens Ernstberger, Stefanos Chaliasos, Zhipeng Wang, Ye Wang, <strong class="author-highlight">Kaihua Qin</strong>, Roger Wattenhofer, Dawn Song, Arthur Gervais
                 </div>
+                <div class="pub-tags">
+                  <span class="pub-tag">SBC'22</span>
+                </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2208.13035" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{zhou2023sok,
+  author = {Zhou, Liyi and Xiong, Xihan and Ernstberger, Jens and Chaliasos, Stefanos and Wang, Zhipeng and Wang, Ye and Qin, Kaihua and Wattenhofer, Roger and Song, Dawn and Gervais, Arthur},
+  title = {Sok: Decentralized finance (defi) attacks},
+  booktitle = {2023 IEEE Symposium on Security and Privacy (SP)},
+  year = {2023},
+  pages = {2444--2461},
+  organization = {IEEE},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1621,8 +1809,19 @@
                 <div class="pub-authors">
                   <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Arthur Gervais
                 </div>
+                <div class="pub-tags">
+                  <span class="pub-tag">Cybersecurity Award 2023 -- Best Practical Paper</span><span class="pub-tag">SBC'22</span><span class="pub-tag">CESC'22</span>
+                </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2101.05511" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{qin2022quantifying,
+  author = {Qin, Kaihua and Zhou, Liyi and Gervais, Arthur},
+  title = {Quantifying blockchain extractable value: How dark is the forest?},
+  booktitle = {2022 IEEE Symposium on Security and Privacy (SP)},
+  year = {2022},
+  pages = {198--214},
+  organization = {IEEE},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1633,7 +1832,18 @@
                 <div class="pub-authors">
                   Zhipeng Wang, <strong class="author-highlight">Kaihua Qin</strong>, Duc Vu Minh, Arthur Gervais
                 </div>
-
+                <div class="pub-links">
+                  <a href="https://fc22.ifca.ai/preproceedings/71.pdf" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> PDF</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{wang2022speculative,
+  author = {Wang, Zhipeng and Qin, Kaihua and Minh, Duc Vu and Gervais, Arthur},
+  title = {Speculative multipliers on defi: Quantifying on-chain leverage risks},
+  booktitle = {International Conference on Financial Cryptography and Data Security},
+  year = {2022},
+  pages = {38--56},
+  organization = {Springer},
+  doi = {10.1007/978-3-031-18283-9_3},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
+                </div>
               </div>
             </li>
           </ul>
@@ -1649,8 +1859,18 @@
                 <div class="pub-authors">
                   <strong class="author-highlight">Kaihua Qin</strong>, Liyi Zhou, Pablo Gamito, Philipp Jovanovic, Arthur Gervais
                 </div>
+                <div class="pub-tags">
+                  <span class="pub-tag">SBC'22</span>
+                </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2106.06389" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{qin2021empirical,
+  author = {Qin, Kaihua and Zhou, Liyi and Gamito, Pablo and Jovanovic, Philipp and Gervais, Arthur},
+  title = {An empirical study of defi liquidations: Incentives, risks, and instabilities},
+  booktitle = {Proceedings of the 21st ACM Internet Measurement Conference},
+  year = {2021},
+  pages = {336--350},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1663,6 +1883,14 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2009.14021" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{zhou2021high,
+  author = {Zhou, Liyi and Qin, Kaihua and Torres, Christof Ferreira and Le, Duc V and Gervais, Arthur},
+  title = {High-frequency trading on decentralized on-chain exchanges},
+  booktitle = {2021 IEEE Symposium on Security and Privacy (SP)},
+  year = {2021},
+  pages = {428--445},
+  organization = {IEEE},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1675,6 +1903,14 @@
                 </div>
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2103.02228" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{zhou2021just,
+  author = {Zhou, Liyi and Qin, Kaihua and Cully, Antoine and Livshits, Benjamin and Gervais, Arthur},
+  title = {On the just-in-time discovery of profit-generating transactions in defi protocols},
+  booktitle = {2021 IEEE Symposium on Security and Privacy (SP)},
+  year = {2021},
+  pages = {919--936},
+  organization = {IEEE},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1688,6 +1924,14 @@
                 <div class="pub-links">
                   <a href="https://arxiv.org/abs/2003.03810" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>
                   <a href="https://hackingdistributed.com/2020/03/11/flash-loans/" target="_blank"><svg class="fas fa-blog svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"/></svg> Blog</a>
+                  <button type="button" class="bibtex-copy" data-bibtex="@inproceedings{qin2021attacking,
+  author = {Qin, Kaihua and Zhou, Liyi and Livshits, Benjamin and Gervais, Arthur},
+  title = {Attacking the defi ecosystem with flash loans for fun and profit},
+  booktitle = {International Conference on Financial Cryptography and Data Security},
+  year = {2021},
+  pages = {3--32},
+  organization = {Springer},
+}"><svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg> <span class="bibtex-label">BibTeX</span></button>
                 </div>
               </div>
             </li>
@@ -1706,6 +1950,46 @@
       if (header) {
         header.setAttribute('aria-expanded', String(!collapsed));
       }
+    }
+
+    async function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch (error) {
+          // Fall back to execCommand when the Clipboard API is blocked.
+        }
+      }
+
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      const copied = document.execCommand('copy');
+      document.body.removeChild(textarea);
+      return copied;
+    }
+
+    function initBibtexCopy() {
+      document.querySelectorAll('.bibtex-copy').forEach(button => {
+        if (button.dataset.copyReady === 'true') return;
+        button.dataset.copyReady = 'true';
+        button.addEventListener('click', async () => {
+          const text = button.getAttribute('data-bibtex') || '';
+          const label = button.querySelector('.bibtex-label');
+          const copied = await copyText(text);
+          if (label) label.textContent = copied ? 'Copied' : 'Copy failed';
+          button.classList.toggle('is-copied', copied);
+          setTimeout(() => {
+            button.classList.remove('is-copied');
+            if (label) label.textContent = 'BibTeX';
+          }, 1600);
+        });
+      });
     }
 
     function initPublicationToggles() {
@@ -1793,6 +2077,7 @@
 
     window.addEventListener('load', () => {
       initPublicationToggles();
+      initBibtexCopy();
       syncTabFromHash({ scroll: false });
     });
 

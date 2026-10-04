@@ -131,80 +131,119 @@ def format_authors(authors):
     return ', '.join(formatted)
 
 
+FILE_ICON = (
+    '<svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" '
+    'role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg>'
+)
+BLOG_ICON = (
+    '<svg class="fas fa-blog svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" '
+    'role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"/></svg>'
+)
+BIB_ICON = (
+    '<svg class="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" '
+    'role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 4.5L4.5 12l3.7 7.5h2.4L6.7 12 10.6 4.5H8.2zm7.6 0h-2.4L16.3 12l-3.9 7.5h2.4L19.5 12 15.8 4.5z"/></svg>'
+)
+
+SKIP_BIB_FIELDS = {'_type', '_id', 'abbr', 'tags', 'arxiv', 'eprint', 'blog', 'pdf'}
+BIB_FIELD_ORDER = [
+    'author', 'title', 'booktitle', 'journal', 'year', 'volume', 'number',
+    'pages', 'publisher', 'address', 'organization', 'doi',
+]
+
+
+def venue_label(entry):
+    venue = html_escape(entry.get('abbr', ''))
+    return re.sub(r'\s+\d{2}$', '', venue)
+
+
+def parse_tags(entry):
+    raw = entry.get('tags', '')
+    if not raw:
+        return []
+    return [tag.strip() for tag in raw.split(',') if tag.strip()]
+
+
+def make_tags_html(entry):
+    tags = parse_tags(entry)
+    if not tags:
+        return ''
+    chips = ''.join(f'<span class="pub-tag">{html_escape(tag)}</span>' for tag in tags)
+    return f'<div class="pub-tags">\n                  {chips}\n                </div>'
+
+
+def make_bibtex(entry):
+    keys = [key for key in BIB_FIELD_ORDER if key in entry]
+    keys += [key for key in entry if key not in SKIP_BIB_FIELDS and key not in keys]
+    lines = [f"@{entry.get('_type', 'inproceedings')}{{{entry.get('_id', 'entry')},"]
+    for key in keys:
+        lines.append(f"  {key} = {{{entry[key]}}},")
+    lines.append('}')
+    return '\n'.join(lines)
+
+
 def make_links(entry):
     links = []
     if 'arxiv' in entry:
-        links.append(f'<a href="https://arxiv.org/abs/{entry["arxiv"]}" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> arXiv</a>')
+        links.append(f'<a href="https://arxiv.org/abs/{entry["arxiv"]}" target="_blank">{FILE_ICON} arXiv</a>')
     if 'eprint' in entry:
-        links.append(f'<a href="https://eprint.iacr.org/{entry["eprint"]}" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> ePrint</a>')
+        links.append(f'<a href="https://eprint.iacr.org/{entry["eprint"]}" target="_blank">{FILE_ICON} ePrint</a>')
     if 'blog' in entry:
-        links.append(f'<a href="{entry["blog"]}" target="_blank"><svg class="fas fa-blog svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"/></svg> Blog</a>')
-    
-    # Add other common links if present
+        links.append(f'<a href="{entry["blog"]}" target="_blank">{BLOG_ICON} Blog</a>')
     if 'pdf' in entry:
-        links.append(f'<a href="{entry["pdf"]}" target="_blank"><svg class="far fa-file-pdf svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> PDF</a>')
-    
+        links.append(f'<a href="{entry["pdf"]}" target="_blank">{FILE_ICON} PDF</a>')
+    bibtex = html_escape(make_bibtex(entry))
+    links.append(
+        f'<button type="button" class="bibtex-copy" data-bibtex="{bibtex}">{BIB_ICON} '
+        f'<span class="bibtex-label">BibTeX</span></button>'
+    )
     return '\n                  '.join(links)
 
+
 def make_entry_html(entry):
-    # Venue tag (abbreviation) - strip year (e.g. "ISSTA 25" -> "ISSTA")
-    venue = html_escape(entry.get('abbr', ''))
-    venue = re.sub(r'\s+\d{2}$', '', venue)
-    
+    venue = venue_label(entry)
     title = html_escape(entry.get('title', ''))
-    # Don't escape authors since we're adding HTML highlighting
     authors = format_authors(entry.get('author', ''))
-    
+    tags_html = make_tags_html(entry)
     links_html = make_links(entry)
     links_div = f'<div class="pub-links">\n                  {links_html}\n                </div>' if links_html else ''
-    
-    html = f'''            <li class="pub-item">
+
+    parts = [
+        f'<div class="pub-title">{title}</div>',
+        f'<div class="pub-authors">\n                  {authors}\n                </div>',
+        tags_html,
+        links_div,
+    ]
+    details = '\n                '.join(part for part in parts if part)
+
+    return f'''            <li class="pub-item">
               <div class="pub-venue-tag">{venue}</div>
               <div class="pub-details">
-                <div class="pub-title">{title}</div>
-                <div class="pub-authors">
-                  {authors}
-                </div>
-                {links_div}
+                {details}
               </div>
             </li>'''
-    return html
+
+
+def load_entries():
+    return parse_bibtex(BIB_PATH.read_text(encoding='utf-8'))
+
 
 def generate_publications_html():
-    bib_content = BIB_PATH.read_text(encoding='utf-8')
-    entries = parse_bibtex(bib_content)
-    
-    # Group by year
+    entries = load_entries()
     years = {}
     for entry in entries:
-        year = entry.get('year', '0')
-        if year not in years:
-            years[year] = []
-        years[year].append(entry)
-    
-    # Sort years in descending order
-    sorted_years = sorted(years.keys(), key=int, reverse=True)
-    
-    # Generate HTML for each year section
+        years.setdefault(entry.get('year', '0'), []).append(entry)
+
     html_sections = []
-    
-    for year in sorted_years:
-        year_entries = years[year]
-        # Sort entries within year alphabetically by title (or use a 'selected' flag or other logic if needed)
-        # Defaulting to bib order or title for now
-        
+    for year in sorted(years.keys(), key=int, reverse=True):
         year_html = f'        <div class="year-group">\n'
         year_html += f'          <div class="year-header">{year}</div>\n'
         year_html += f'          <ul class="pub-list">\n'
-        
-        for entry in year_entries:
+        for entry in years[year]:
             year_html += f'{make_entry_html(entry)}\n'
-        
         year_html += f'          </ul>\n'
         year_html += f'        </div>'
-        
         html_sections.append(year_html)
-    
+
     return '\n\n'.join(html_sections)
 
 def update_index_html():
@@ -234,13 +273,18 @@ def update_index_html():
 
 
 def make_entry_md(entry):
-    venue = entry.get('abbr', '')
-    venue = re.sub(r'\s+\d{2}$', '', venue)
+    venue = re.sub(r'\s+\d{2}$', '', entry.get('abbr', ''))
     title = entry.get('title', '')
     authors = format_authors(entry.get('author', ''))
-    # Remove HTML bolding from authors for MD
     authors = authors.replace('<strong class="author-highlight">', '**').replace('</strong>', '**')
-    
+
+    lines = [f"- **[{venue}]** {title}" if venue else f"- {title}"]
+    lines.append(f"  - {authors}")
+
+    tags = parse_tags(entry)
+    if tags:
+        lines.append(f"  - Tags: {'; '.join(tags)}")
+
     links = []
     if 'arxiv' in entry:
         links.append(f"[arXiv](https://arxiv.org/abs/{entry['arxiv']})")
@@ -250,37 +294,25 @@ def make_entry_md(entry):
         links.append(f"[Blog]({entry['blog']})")
     if 'pdf' in entry:
         links.append(f"[PDF]({entry['pdf']})")
-        
-    links_str = " | ".join(links)
-    
-    venue_str = f"**[{venue}]** " if venue else ""
-    return f"- {venue_str}{title}\n  - {authors}\n  - {links_str}"
+    if links:
+        lines.append(f"  - {' | '.join(links)}")
+
+    return "\n".join(lines)
+
 
 def generate_publications_md():
-    bib_content = BIB_PATH.read_text(encoding='utf-8')
-    entries = parse_bibtex(bib_content)
-    
-    # Group by year
+    entries = load_entries()
     years = {}
     for entry in entries:
-        year = entry.get('year', '0')
-        if year not in years:
-            years[year] = []
-        years[year].append(entry)
-    
-    sorted_years = sorted(years.keys(), key=int, reverse=True)
+        years.setdefault(entry.get('year', '0'), []).append(entry)
+
     md_sections = []
-    
-    for year in sorted_years:
-        year_entries = years[year]
-        # Sort by title
-        year_entries.sort(key=lambda e: e.get('title', ''))
-        
+    for year in sorted(years.keys(), key=int, reverse=True):
         section = f"### {year}\n"
-        for entry in year_entries:
+        for entry in years[year]:
             section += make_entry_md(entry) + "\n"
         md_sections.append(section)
-        
+
     return "\n".join(md_sections)
 
 def update_index_md():
